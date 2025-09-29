@@ -182,7 +182,7 @@ export const MealBuilder: React.FC = () => {
 
         {/* Step 2: Base Selection */}
         <StepCard 
-          className={`absolute inset-x-0 p-6 transition-all duration-400 ${getStepTransform(1)}`}
+          className={`p-6 transition-all duration-400 ${getStepTransform(1)}`}
           isActive={currentStep === 1}
           isCompleted={currentStep > 1}
         >
@@ -277,7 +277,7 @@ export const MealBuilder: React.FC = () => {
 
         {/* Step 3: Extras */}
         <StepCard 
-          className={`absolute inset-x-0 p-6 transition-all duration-400 ${getStepTransform(2)}`}
+          className={`transition-all duration-400 ${getStepTransform(2)}`}
           isActive={currentStep === 2}
           isCompleted={currentStep > 2}
         >
