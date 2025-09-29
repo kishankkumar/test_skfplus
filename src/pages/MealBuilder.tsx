@@ -135,7 +135,7 @@ export const MealBuilder: React.FC = () => {
       <div className="relative px-4 py-6 max-w-md mx-auto overflow-hidden">
         {/* Step 1: Sabji Selection */}
         <StepCard 
-          className={`absolute inset-x-0 p-6 transition-all duration-400 ${getStepTransform(0)}`}
+          className={`p-6 transition-all duration-400 ${getStepTransform(0)}`}
           isActive={currentStep === 0}
           isCompleted={currentStep > 0}
         >
