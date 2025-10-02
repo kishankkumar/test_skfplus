@@ -19,19 +19,19 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none active:scale-95';
+  const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-250 ease-smooth focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none active:scale-[0.98]';
 
   const variantClasses = {
-    primary: 'bg-orange-500 hover:bg-orange-600 text-white focus:ring-orange-500/40 shadow-sm hover:shadow-md',
-    secondary: 'bg-gray-900 hover:bg-gray-800 text-white focus:ring-gray-500/40 shadow-sm hover:shadow-md',
-    outline: 'border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 focus:ring-gray-500/30 bg-white',
-    ghost: 'text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:ring-gray-400/30',
+    primary: 'bg-primary-900 hover:bg-primary-800 text-white focus:ring-primary-900/20 shadow-sm hover:shadow-md',
+    secondary: 'bg-accent-500 hover:bg-accent-600 text-white focus:ring-accent-500/20 shadow-sm hover:shadow-md',
+    outline: 'border border-primary-300 text-primary-900 hover:bg-primary-100 hover:border-primary-400 focus:ring-primary-900/10 bg-white',
+    ghost: 'text-primary-700 hover:text-primary-900 hover:bg-primary-100 focus:ring-primary-900/10',
   };
 
   const sizeClasses = {
-    sm: 'px-3 py-1.5 text-sm rounded-lg',
-    md: 'px-4 py-2 text-sm rounded-lg',
-    lg: 'px-6 py-2.5 text-base rounded-lg',
+    sm: 'px-3.5 py-2 text-sm rounded-lg',
+    md: 'px-5 py-2.5 text-sm rounded-lg',
+    lg: 'px-6 py-3 text-base rounded-xl',
   };
 
   const widthClasses = fullWidth ? 'w-full' : '';

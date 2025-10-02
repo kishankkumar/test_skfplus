@@ -32,12 +32,12 @@ export const ContactUs: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-primary-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold text-primary-900 mb-4">Get in Touch</h1>
+          <p className="text-xl text-primary-600 max-w-3xl mx-auto">
             Have questions, feedback, or need help? We're here to assist you!
           </p>
         </div>
@@ -51,10 +51,10 @@ export const ContactUs: React.FC = () => {
                   <Phone className="w-6 h-6 text-orange-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Phone Support</h3>
-                  <p className="text-gray-600 mb-2">Call us for immediate assistance</p>
+                  <h3 className="font-semibold text-primary-900 mb-2">Phone Support</h3>
+                  <p className="text-primary-600 mb-2">Call us for immediate assistance</p>
                   <p className="font-medium text-orange-600">+91 98765 43210</p>
-                  <p className="text-sm text-gray-500">Available 12:00 PM - 10:00 PM</p>
+                  <p className="text-sm text-primary-500">Available 12:00 PM - 10:00 PM</p>
                 </div>
               </div>
             </Card>
@@ -65,10 +65,10 @@ export const ContactUs: React.FC = () => {
                   <Mail className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Email Support</h3>
-                  <p className="text-gray-600 mb-2">Send us your queries anytime</p>
+                  <h3 className="font-semibold text-primary-900 mb-2">Email Support</h3>
+                  <p className="text-primary-600 mb-2">Send us your queries anytime</p>
                   <p className="font-medium text-blue-600">hello@skfood.com</p>
-                  <p className="text-sm text-gray-500">Response within 2 hours</p>
+                  <p className="text-sm text-primary-500">Response within 2 hours</p>
                 </div>
               </div>
             </Card>
@@ -79,10 +79,10 @@ export const ContactUs: React.FC = () => {
                   <MessageCircle className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">WhatsApp</h3>
-                  <p className="text-gray-600 mb-2">Quick chat support</p>
+                  <h3 className="font-semibold text-primary-900 mb-2">WhatsApp</h3>
+                  <p className="text-primary-600 mb-2">Quick chat support</p>
                   <p className="font-medium text-green-600">+91 98765 43210</p>
-                  <p className="text-sm text-gray-500">Instant responses</p>
+                  <p className="text-sm text-primary-500">Instant responses</p>
                 </div>
               </div>
             </Card>
@@ -93,9 +93,9 @@ export const ContactUs: React.FC = () => {
                   <MapPin className="w-6 h-6 text-red-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Visit Us</h3>
-                  <p className="text-gray-600 mb-2">SKFood Central Kitchen</p>
-                  <p className="text-sm text-gray-600">
+                  <h3 className="font-semibold text-primary-900 mb-2">Visit Us</h3>
+                  <p className="text-primary-600 mb-2">SKFood Central Kitchen</p>
+                  <p className="text-sm text-primary-600">
                     Near University Campus<br />
                     Main Road, Campus Area<br />
                     City - 123456
@@ -110,8 +110,8 @@ export const ContactUs: React.FC = () => {
                   <Clock className="w-6 h-6 text-purple-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Business Hours</h3>
-                  <div className="space-y-1 text-sm text-gray-600">
+                  <h3 className="font-semibold text-primary-900 mb-2">Business Hours</h3>
+                  <div className="space-y-1 text-sm text-primary-600">
                     <p><strong>Lunch:</strong> 12:00 PM - 3:00 PM</p>
                     <p><strong>Dinner:</strong> 7:00 PM - 10:00 PM</p>
                     <p><strong>Support:</strong> 10:00 AM - 11:00 PM</p>
@@ -125,12 +125,12 @@ export const ContactUs: React.FC = () => {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <Card className="p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+              <h2 className="text-2xl font-bold text-primary-900 mb-6">Send us a Message</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-primary-700 mb-2">
                       Full Name *
                     </label>
                     <input
@@ -139,13 +139,13 @@ export const ContactUs: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all"
                       placeholder="Your full name"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-primary-700 mb-2">
                       Email Address *
                     </label>
                     <input
@@ -154,7 +154,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -162,7 +162,7 @@ export const ContactUs: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-primary-700 mb-2">
                       Phone Number
                     </label>
                     <input
@@ -170,13 +170,13 @@ export const ContactUs: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all"
                       placeholder="+91 98765 43210"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-primary-700 mb-2">
                       Subject *
                     </label>
                     <select
@@ -184,7 +184,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all"
                     >
                       <option value="">Select a subject</option>
                       <option value="order-inquiry">Order Inquiry</option>
@@ -199,7 +199,7 @@ export const ContactUs: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-primary-700 mb-2">
                     Message *
                   </label>
                   <textarea
@@ -208,7 +208,7 @@ export const ContactUs: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all resize-none"
                     placeholder="Tell us how we can help you..."
                   />
                 </div>
@@ -227,36 +227,36 @@ export const ContactUs: React.FC = () => {
 
             {/* FAQ Section */}
             <Card className="p-8 mt-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
+              <h3 className="text-xl font-bold text-primary-900 mb-6">Frequently Asked Questions</h3>
               
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">How long does delivery take?</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="font-semibold text-primary-900 mb-2">How long does delivery take?</h4>
+                  <p className="text-primary-600 text-sm">
                     Our standard delivery time is 30-40 minutes from order confirmation. 
                     During peak hours, it might take up to 50 minutes.
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">What are your delivery areas?</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="font-semibold text-primary-900 mb-2">What are your delivery areas?</h4>
+                  <p className="text-primary-600 text-sm">
                     We currently deliver to Hostels A, B, C, D, and E within the university campus. 
                     We're expanding to more areas soon!
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Can I customize my thali?</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="font-semibold text-primary-900 mb-2">Can I customize my thali?</h4>
+                  <p className="text-primary-600 text-sm">
                     Yes! You can choose your sabjis, base (roti/rice), and add extras like 
                     special paneer or extra raita through our meal builder.
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Do you offer refunds?</h4>
-                  <p className="text-gray-600 text-sm">
+                  <h4 className="font-semibold text-primary-900 mb-2">Do you offer refunds?</h4>
+                  <p className="text-primary-600 text-sm">
                     If you're not satisfied with your order, contact us within 30 minutes of delivery. 
                     We'll either replace your meal or provide a full refund.
                   </p>

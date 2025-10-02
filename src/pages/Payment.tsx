@@ -62,16 +62,16 @@ export const Payment: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-primary-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="bg-white border-b border-primary-200">
         <div className="flex items-center justify-between px-4 py-4">
           <Link to="/checkout">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="w-5 h-5" />
             </Button>
           </Link>
-          <h1 className="text-lg font-semibold text-gray-900">Payment</h1>
+          <h1 className="text-lg font-semibold text-primary-900">Payment</h1>
           <div className="w-10" />
         </div>
       </header>
@@ -81,8 +81,8 @@ export const Payment: React.FC = () => {
         <Card className="p-4 bg-orange-50 border-orange-200">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="font-semibold text-gray-900">Order Total</h3>
-              <p className="text-sm text-gray-600">{currentOrder.quantity} Thali(s)</p>
+              <h3 className="font-semibold text-primary-900">Order Total</h3>
+              <p className="text-sm text-primary-600">{currentOrder.quantity} Thali(s)</p>
             </div>
             <div className="text-right">
               <span className="text-2xl font-bold text-orange-600">₹{finalTotal}</span>
@@ -95,7 +95,7 @@ export const Payment: React.FC = () => {
 
         {/* Payment Methods */}
         <div>
-          <h3 className="font-semibold text-gray-900 mb-4">Select Payment Method</h3>
+          <h3 className="font-semibold text-primary-900 mb-4">Select Payment Method</h3>
           
           <div className="space-y-3">
             {/* UPI */}
@@ -111,8 +111,8 @@ export const Payment: React.FC = () => {
                     <Smartphone className="w-5 h-5 text-purple-600" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900">UPI</h4>
-                    <p className="text-sm text-gray-600">Pay using UPI apps</p>
+                    <h4 className="font-medium text-primary-900">UPI</h4>
+                    <p className="text-sm text-primary-600">Pay using UPI apps</p>
                   </div>
                 </div>
                 <div className="text-sm text-green-600 font-medium">Recommended</div>
@@ -131,8 +131,8 @@ export const Payment: React.FC = () => {
                   <CreditCard className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900">Credit/Debit Card</h4>
-                  <p className="text-sm text-gray-600">Visa, Mastercard, RuPay</p>
+                  <h4 className="font-medium text-primary-900">Credit/Debit Card</h4>
+                  <p className="text-sm text-primary-600">Visa, Mastercard, RuPay</p>
                 </div>
               </div>
             </Card>
@@ -149,8 +149,8 @@ export const Payment: React.FC = () => {
                   <span className="text-green-600 font-bold text-sm">₹</span>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900">Digital Wallet</h4>
-                  <p className="text-sm text-gray-600">Paytm, PhonePe, etc.</p>
+                  <h4 className="font-medium text-primary-900">Digital Wallet</h4>
+                  <p className="text-sm text-primary-600">Paytm, PhonePe, etc.</p>
                 </div>
               </div>
             </Card>
@@ -160,20 +160,20 @@ export const Payment: React.FC = () => {
         {/* Payment Details */}
         {paymentMethod === 'upi' && (
           <Card className="p-4">
-            <h4 className="font-medium text-gray-900 mb-3">Enter UPI ID</h4>
+            <h4 className="font-medium text-primary-900 mb-3">Enter UPI ID</h4>
             <input
               type="text"
               value={upiId}
               onChange={(e) => setUpiId(e.target.value)}
               placeholder="yourname@upi"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
             />
           </Card>
         )}
 
         {paymentMethod === 'card' && (
           <Card className="p-4 space-y-4">
-            <h4 className="font-medium text-gray-900">Card Details</h4>
+            <h4 className="font-medium text-primary-900">Card Details</h4>
             
             <div>
               <input
@@ -181,7 +181,7 @@ export const Payment: React.FC = () => {
                 value={cardDetails.number}
                 onChange={(e) => setCardDetails({ ...cardDetails, number: e.target.value })}
                 placeholder="Card Number"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
               />
             </div>
 
@@ -191,14 +191,14 @@ export const Payment: React.FC = () => {
                 value={cardDetails.expiry}
                 onChange={(e) => setCardDetails({ ...cardDetails, expiry: e.target.value })}
                 placeholder="MM/YY"
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
               />
               <input
                 type="text"
                 value={cardDetails.cvv}
                 onChange={(e) => setCardDetails({ ...cardDetails, cvv: e.target.value })}
                 placeholder="CVV"
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
               />
             </div>
 
@@ -208,7 +208,7 @@ export const Payment: React.FC = () => {
                 value={cardDetails.name}
                 onChange={(e) => setCardDetails({ ...cardDetails, name: e.target.value })}
                 placeholder="Cardholder Name"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
               />
             </div>
           </Card>
@@ -216,19 +216,19 @@ export const Payment: React.FC = () => {
 
         {paymentMethod === 'wallet' && (
           <Card className="p-4 text-center">
-            <p className="text-gray-600">You will be redirected to your wallet app</p>
+            <p className="text-primary-600">You will be redirected to your wallet app</p>
           </Card>
         )}
 
         {/* Security Info */}
-        <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+        <div className="flex items-center justify-center space-x-2 text-sm text-primary-500">
           <Shield className="w-4 h-4" />
           <span>256-bit SSL encrypted & secure</span>
         </div>
 
         {/* Razorpay Branding */}
         <div className="text-center">
-          <div className="inline-flex items-center space-x-2 text-sm text-gray-500 bg-white px-4 py-2 rounded-lg border border-gray-200">
+          <div className="inline-flex items-center space-x-2 text-sm text-primary-500 bg-white px-4 py-2 rounded-lg border border-primary-200">
             <span>Powered by</span>
             <span className="font-bold text-blue-600">Razorpay</span>
           </div>
@@ -236,7 +236,7 @@ export const Payment: React.FC = () => {
       </div>
 
       {/* Pay Button */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-primary-200 p-4">
         <div className="max-w-md mx-auto">
           <Button
             size="lg"

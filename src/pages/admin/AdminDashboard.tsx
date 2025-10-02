@@ -19,12 +19,12 @@ export const AdminDashboard: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50/20">
       {/* Header */}
-      <header className="glass border-b border-gray-200/50 shadow-sm">
+      <header className="glass border-b border-primary-200/50 shadow-sm">
         <div className="px-4 py-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">SKFood Admin</h1>
-              <p className="text-sm text-gray-600">Manage your food business</p>
+              <h1 className="text-2xl md:text-3xl font-bold text-primary-900 tracking-tight">SKFood Admin</h1>
+              <p className="text-sm text-primary-600">Manage your food business</p>
             </div>
             <Link to="/">
               <Button variant="outline" size="sm">
@@ -36,16 +36,16 @@ export const AdminDashboard: React.FC = () => {
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-3">
             <Card className="p-4 text-center bg-gradient-to-br from-white to-gray-50">
-              <div className="text-2xl md:text-3xl font-bold text-gray-900">{todayOrders.length}</div>
-              <div className="text-xs md:text-sm text-gray-500 mt-1">Today's Orders</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary-900">{todayOrders.length}</div>
+              <div className="text-xs md:text-sm text-primary-500 mt-1">Today's Orders</div>
             </Card>
             <Card className="p-4 text-center bg-gradient-to-br from-orange-50 to-white">
               <div className="text-2xl md:text-3xl font-bold text-orange-600">₹{todayRevenue}</div>
-              <div className="text-xs md:text-sm text-gray-500 mt-1">Today's Revenue</div>
+              <div className="text-xs md:text-sm text-primary-500 mt-1">Today's Revenue</div>
             </Card>
             <Card className="p-4 text-center bg-gradient-to-br from-blue-50 to-white">
               <div className="text-2xl md:text-3xl font-bold text-blue-600">{pendingOrders.length}</div>
-              <div className="text-xs md:text-sm text-gray-500 mt-1">Pending Orders</div>
+              <div className="text-xs md:text-sm text-primary-500 mt-1">Pending Orders</div>
             </Card>
           </div>
         </div>
@@ -54,7 +54,7 @@ export const AdminDashboard: React.FC = () => {
       <div className="px-4 py-6 max-w-2xl mx-auto space-y-8">
         {/* Quick Actions */}
         <div>
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+          <h2 className="text-xl font-bold text-primary-900 mb-4">Quick Actions</h2>
           <div className="grid grid-cols-1 gap-4">
             <Link to="/admin/publish-menu">
               <Card hoverable className="p-5">
@@ -63,8 +63,8 @@ export const AdminDashboard: React.FC = () => {
                     <PlusCircle className="w-6 h-6 text-orange-600" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900">Publish Today's Menu</h3>
-                    <p className="text-sm text-gray-600">Add sabjis and set prices for today</p>
+                    <h3 className="font-semibold text-primary-900">Publish Today's Menu</h3>
+                    <p className="text-sm text-primary-600">Add sabjis and set prices for today</p>
                   </div>
                 </div>
               </Card>
@@ -77,8 +77,8 @@ export const AdminDashboard: React.FC = () => {
                     <ShoppingBag className="w-6 h-6 text-blue-600" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900">Manage Orders</h3>
-                    <p className="text-sm text-gray-600">View and update order status</p>
+                    <h3 className="font-semibold text-primary-900">Manage Orders</h3>
+                    <p className="text-sm text-primary-600">View and update order status</p>
                   </div>
                   {pendingOrders.length > 0 && (
                     <span className="bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded-full">
@@ -93,22 +93,22 @@ export const AdminDashboard: React.FC = () => {
 
         {/* Menu Management */}
         <div>
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Menu Management</h2>
+          <h2 className="text-xl font-bold text-primary-900 mb-4">Menu Management</h2>
           <div className="grid grid-cols-2 gap-4">
             <Card hoverable className="p-6 text-center">
               <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3">
                 <Settings className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="font-medium text-gray-900 mb-1">Menu Templates</h3>
-              <p className="text-sm text-gray-600">Saved menu combinations</p>
+              <h3 className="font-medium text-primary-900 mb-1">Menu Templates</h3>
+              <p className="text-sm text-primary-600">Saved menu combinations</p>
             </Card>
 
             <Card hoverable className="p-6 text-center">
               <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-3">
                 <BarChart3 className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="font-medium text-gray-900 mb-1">Analytics</h3>
-              <p className="text-sm text-gray-600">Sales & order insights</p>
+              <h3 className="font-medium text-primary-900 mb-1">Analytics</h3>
+              <p className="text-sm text-primary-600">Sales & order insights</p>
             </Card>
           </div>
         </div>
@@ -116,7 +116,7 @@ export const AdminDashboard: React.FC = () => {
         {/* Recent Orders */}
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-gray-900">Recent Orders</h2>
+            <h2 className="text-xl font-bold text-primary-900">Recent Orders</h2>
             <Link to="/admin/orders">
               <Button variant="ghost" size="sm">View All</Button>
             </Link>
@@ -127,13 +127,13 @@ export const AdminDashboard: React.FC = () => {
               <Card key={order.id} className="p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-medium text-gray-900">Order #{order.id}</h3>
-                    <p className="text-sm text-gray-600">
+                    <h3 className="font-medium text-primary-900">Order #{order.id}</h3>
+                    <p className="text-sm text-primary-600">
                       {order.items.quantity} thali(s) • ₹{order.total}
                     </p>
                     <div className="flex items-center space-x-1 mt-1">
                       <Clock className="w-3 h-3 text-gray-400" />
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-primary-500">
                         {order.createdAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </span>
                     </div>
@@ -144,7 +144,7 @@ export const AdminDashboard: React.FC = () => {
                     }`}>
                       {order.status === 'pending' ? 'Preparing' : 'On the way'}
                     </span>
-                    <p className="text-sm text-gray-600 mt-1">OTP: {order.otp}</p>
+                    <p className="text-sm text-primary-600 mt-1">OTP: {order.otp}</p>
                   </div>
                 </div>
               </Card>
@@ -152,10 +152,10 @@ export const AdminDashboard: React.FC = () => {
 
             {pendingOrders.length === 0 && (
               <Card className="p-8 text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <ShoppingBag className="w-6 h-6 text-gray-400" />
                 </div>
-                <p className="text-gray-600">No pending orders</p>
+                <p className="text-primary-600">No pending orders</p>
               </Card>
             )}
           </div>
@@ -163,24 +163,24 @@ export const AdminDashboard: React.FC = () => {
 
         {/* Business Insights */}
         <Card className="p-6 bg-gradient-to-r from-orange-50/50 to-orange-50/30 border-orange-200/50">
-          <h3 className="font-semibold text-gray-900 mb-3">Today's Summary</h3>
+          <h3 className="font-semibold text-primary-900 mb-3">Today's Summary</h3>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <span className="text-gray-600">Total Orders</span>
-              <p className="font-semibold text-gray-900">{todayOrders.length}</p>
+              <span className="text-primary-600">Total Orders</span>
+              <p className="font-semibold text-primary-900">{todayOrders.length}</p>
             </div>
             <div>
-              <span className="text-gray-600">Revenue</span>
+              <span className="text-primary-600">Revenue</span>
               <p className="font-semibold text-orange-600">₹{todayRevenue}</p>
             </div>
             <div>
-              <span className="text-gray-600">Avg Order Value</span>
-              <p className="font-semibold text-gray-900">
+              <span className="text-primary-600">Avg Order Value</span>
+              <p className="font-semibold text-primary-900">
                 ₹{todayOrders.length > 0 ? Math.round(todayRevenue / todayOrders.length) : 0}
               </p>
             </div>
             <div>
-              <span className="text-gray-600">Customer Satisfaction</span>
+              <span className="text-primary-600">Customer Satisfaction</span>
               <p className="font-semibold text-green-600">98%</p>
             </div>
           </div>

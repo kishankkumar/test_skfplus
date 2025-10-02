@@ -56,7 +56,7 @@ export const AdminOrders: React.FC = () => {
       case 'pending': return 'text-orange-600 bg-orange-100';
       case 'on-the-way': return 'text-blue-600 bg-blue-100';
       case 'delivered': return 'text-green-600 bg-green-100';
-      default: return 'text-gray-600 bg-gray-100';
+      default: return 'text-primary-600 bg-primary-100';
     }
   };
 
@@ -76,14 +76,14 @@ export const AdminOrders: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50/20">
       {/* Header */}
-      <header className="glass border-b border-gray-200/50 shadow-sm">
+      <header className="glass border-b border-primary-200/50 shadow-sm">
         <div className="flex items-center justify-between px-4 py-4">
           <Link to="/admin">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="w-5 h-5" />
             </Button>
           </Link>
-          <h1 className="text-lg md:text-xl font-bold text-gray-900">Order Management</h1>
+          <h1 className="text-lg md:text-xl font-bold text-primary-900">Order Management</h1>
           <div className="w-10" />
         </div>
       </header>
@@ -99,7 +99,7 @@ export const AdminOrders: React.FC = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search by Order ID or address..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
               />
             </div>
             <Button variant="outline" size="sm">
@@ -122,7 +122,7 @@ export const AdminOrders: React.FC = () => {
                 className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
                   statusFilter === tab.key
                     ? 'bg-orange-50 text-orange-600 shadow-xs'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    : 'text-primary-600 hover:text-primary-900 hover:bg-primary-50'
                 }`}
               >
                 {tab.label} ({tab.count})
@@ -135,11 +135,11 @@ export const AdminOrders: React.FC = () => {
         <div className="space-y-4">
           {filteredOrders.length === 0 ? (
             <Card className="p-8 text-center">
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-8 h-8 text-gray-400" />
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No orders found</h3>
-              <p className="text-gray-600">
+              <h3 className="text-lg font-medium text-primary-900 mb-2">No orders found</h3>
+              <p className="text-primary-600">
                 {statusFilter === 'all' 
                   ? 'No orders match your search criteria'
                   : `No ${statusFilter} orders found`}
@@ -153,10 +153,10 @@ export const AdminOrders: React.FC = () => {
                   <div className="lg:col-span-2">
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <h3 className="text-lg font-semibold text-primary-900">
                           Order #{order.id}
                         </h3>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-primary-600">
                           {order.createdAt.toLocaleDateString()} at {order.createdAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </p>
                       </div>
@@ -167,8 +167,8 @@ export const AdminOrders: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                       <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Order Details</h4>
-                        <div className="space-y-1 text-gray-600">
+                        <h4 className="font-medium text-primary-900 mb-2">Order Details</h4>
+                        <div className="space-y-1 text-primary-600">
                           <p><strong>Items:</strong> {order.items.quantity} Thali(s)</p>
                           <p><strong>Sabjis:</strong> {order.items.selectedSabjis.map(s => s.name).join(', ')}</p>
                           <p><strong>Base:</strong> {
@@ -180,10 +180,10 @@ export const AdminOrders: React.FC = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-medium text-gray-900 mb-2">Delivery Info</h4>
-                        <div className="space-y-1 text-gray-600">
+                        <h4 className="font-medium text-primary-900 mb-2">Delivery Info</h4>
+                        <div className="space-y-1 text-primary-600">
                           <p><strong>Address:</strong></p>
-                          <p className="text-sm bg-gray-50 p-2 rounded">
+                          <p className="text-sm bg-primary-50 p-2 rounded">
                             {order.address.address}
                           </p>
                           {order.status !== 'delivered' && (
@@ -195,12 +195,12 @@ export const AdminOrders: React.FC = () => {
                   </div>
 
                   {/* OTP Section */}
-                  <div className="bg-gray-50/50 border border-gray-200/50 rounded-lg p-4">
-                    <h4 className="font-medium text-gray-900 mb-3">Delivery OTP</h4>
+                  <div className="bg-primary-50/50 border border-primary-200/50 rounded-lg p-4">
+                    <h4 className="font-medium text-primary-900 mb-3">Delivery OTP</h4>
                     
                     <div className="space-y-3">
                       <div className="flex items-center space-x-2">
-                        <code className="bg-white px-3 py-2 rounded border font-mono text-lg font-bold text-gray-900">
+                        <code className="bg-white px-3 py-2 rounded border font-mono text-lg font-bold text-primary-900">
                           {order.otp}
                         </code>
                         <Button
@@ -214,7 +214,7 @@ export const AdminOrders: React.FC = () => {
 
                       {order.status !== 'delivered' && (
                         <div className="space-y-2">
-                          <label className="block text-sm font-medium text-gray-700">
+                          <label className="block text-sm font-medium text-primary-700">
                             Verify OTP to mark delivered:
                           </label>
                           <div className="flex space-x-2">
@@ -223,7 +223,7 @@ export const AdminOrders: React.FC = () => {
                               value={otpInputs[order.id] || ''}
                               onChange={(e) => handleOtpChange(order.id, e.target.value)}
                               placeholder="Enter OTP"
-                              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-center font-mono text-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                              className="flex-1 px-3 py-2 border border-primary-300 rounded-lg text-center font-mono text-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
                               maxLength={4}
                             />
                             <Button

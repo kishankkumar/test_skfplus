@@ -35,12 +35,12 @@ export const Profile: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-primary-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">My Profile</h1>
-          <p className="text-gray-600">Manage your account settings and preferences</p>
+          <h1 className="text-3xl font-bold text-primary-900 mb-2">My Profile</h1>
+          <p className="text-primary-600">Manage your account settings and preferences</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -49,7 +49,7 @@ export const Profile: React.FC = () => {
             {/* Basic Information */}
             <Card className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-semibold text-gray-900">Basic Information</h2>
+                <h2 className="text-xl font-semibold text-primary-900">Basic Information</h2>
                 {!isEditing ? (
                   <Button
                     variant="outline"
@@ -82,7 +82,7 @@ export const Profile: React.FC = () => {
 
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-primary-700 mb-2">
                     Full Name
                   </label>
                   <div className="relative">
@@ -95,15 +95,15 @@ export const Profile: React.FC = () => {
                       disabled={!isEditing}
                       className={`w-full pl-10 pr-4 py-3 border rounded-xl transition-all ${
                         isEditing
-                          ? 'border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent'
-                          : 'border-gray-200 bg-gray-50'
+                          ? 'border-primary-300 focus:ring-2 focus:ring-accent-500 focus:border-transparent'
+                          : 'border-primary-200 bg-primary-50'
                       }`}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-primary-700 mb-2">
                     Email Address
                   </label>
                   <div className="relative">
@@ -116,15 +116,15 @@ export const Profile: React.FC = () => {
                       disabled={!isEditing}
                       className={`w-full pl-10 pr-4 py-3 border rounded-xl transition-all ${
                         isEditing
-                          ? 'border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent'
-                          : 'border-gray-200 bg-gray-50'
+                          ? 'border-primary-300 focus:ring-2 focus:ring-accent-500 focus:border-transparent'
+                          : 'border-primary-200 bg-primary-50'
                       }`}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-primary-700 mb-2">
                     Phone Number
                   </label>
                   <div className="relative">
@@ -138,8 +138,8 @@ export const Profile: React.FC = () => {
                       placeholder="Add your phone number"
                       className={`w-full pl-10 pr-4 py-3 border rounded-xl transition-all ${
                         isEditing
-                          ? 'border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent'
-                          : 'border-gray-200 bg-gray-50'
+                          ? 'border-primary-300 focus:ring-2 focus:ring-accent-500 focus:border-transparent'
+                          : 'border-primary-200 bg-primary-50'
                       }`}
                     />
                   </div>
@@ -149,18 +149,18 @@ export const Profile: React.FC = () => {
 
             {/* Saved Addresses */}
             <Card className="p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Saved Addresses</h2>
+              <h2 className="text-xl font-semibold text-primary-900 mb-6">Saved Addresses</h2>
               
               {savedAddresses.length > 0 ? (
                 <div className="space-y-4">
                   {savedAddresses.map((address) => (
-                    <div key={address.id} className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                    <div key={address.id} className="flex items-start space-x-4 p-4 bg-primary-50 rounded-lg">
                       <MapPin className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
                       <div className="flex-1">
-                        <h3 className="font-medium text-gray-900">
+                        <h3 className="font-medium text-primary-900">
                           {address.type === 'geolocation' ? 'Current Location' : address.hostel}
                         </h3>
-                        <p className="text-sm text-gray-600 mt-1">{address.address}</p>
+                        <p className="text-sm text-primary-600 mt-1">{address.address}</p>
                         {address.type === 'geolocation' && (
                           <span className="inline-block mt-2 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
                             GPS Location
@@ -176,7 +176,7 @@ export const Profile: React.FC = () => {
               ) : (
                 <div className="text-center py-8">
                   <MapPin className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                  <p className="text-gray-500 mb-4">No saved addresses yet</p>
+                  <p className="text-primary-500 mb-4">No saved addresses yet</p>
                   <Button variant="outline">Add Address</Button>
                 </div>
               )}
@@ -192,8 +192,8 @@ export const Profile: React.FC = () => {
                   {user?.name?.charAt(0).toUpperCase()}
                 </span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-1">{user?.name}</h3>
-              <p className="text-sm text-gray-600 mb-4">{user?.email}</p>
+              <h3 className="font-semibold text-primary-900 mb-1">{user?.name}</h3>
+              <p className="text-sm text-primary-600 mb-4">{user?.email}</p>
               <Button variant="outline" size="sm" fullWidth>
                 Change Photo
               </Button>
@@ -201,22 +201,22 @@ export const Profile: React.FC = () => {
 
             {/* Account Stats */}
             <Card className="p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Account Stats</h3>
+              <h3 className="font-semibold text-primary-900 mb-4">Account Stats</h3>
               <div className="space-y-4">
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">Member Since</span>
-                  <span className="text-sm font-medium text-gray-900">Jan 2025</span>
+                  <span className="text-sm text-primary-600">Member Since</span>
+                  <span className="text-sm font-medium text-primary-900">Jan 2025</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">Total Orders</span>
-                  <span className="text-sm font-medium text-gray-900">12</span>
+                  <span className="text-sm text-primary-600">Total Orders</span>
+                  <span className="text-sm font-medium text-primary-900">12</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">Money Saved</span>
+                  <span className="text-sm text-primary-600">Money Saved</span>
                   <span className="text-sm font-medium text-green-600">₹240</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">Loyalty Points</span>
+                  <span className="text-sm text-primary-600">Loyalty Points</span>
                   <span className="text-sm font-medium text-orange-600">150</span>
                 </div>
               </div>
@@ -224,29 +224,29 @@ export const Profile: React.FC = () => {
 
             {/* Preferences */}
             <Card className="p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Preferences</h3>
+              <h3 className="font-semibold text-primary-900 mb-4">Preferences</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-700">Email Notifications</span>
+                  <span className="text-sm text-primary-700">Email Notifications</span>
                   <input
                     type="checkbox"
                     defaultChecked
-                    className="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 rounded focus:ring-orange-500"
+                    className="w-4 h-4 text-orange-600 bg-primary-100 border-primary-300 rounded focus:ring-accent-500"
                   />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-700">SMS Updates</span>
+                  <span className="text-sm text-primary-700">SMS Updates</span>
                   <input
                     type="checkbox"
                     defaultChecked
-                    className="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 rounded focus:ring-orange-500"
+                    className="w-4 h-4 text-orange-600 bg-primary-100 border-primary-300 rounded focus:ring-accent-500"
                   />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-700">Marketing Emails</span>
+                  <span className="text-sm text-primary-700">Marketing Emails</span>
                   <input
                     type="checkbox"
-                    className="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 rounded focus:ring-orange-500"
+                    className="w-4 h-4 text-orange-600 bg-primary-100 border-primary-300 rounded focus:ring-accent-500"
                   />
                 </div>
               </div>

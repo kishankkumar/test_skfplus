@@ -18,11 +18,11 @@ export const Home: React.FC = () => {
       {/* Hero Section */}
       <main className="px-4 py-16 max-w-4xl mx-auto space-y-16">
         <div className="text-center space-y-6 animate-fade-in">
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-bold text-primary-900 leading-tight tracking-tight">
             Today's Fresh<br />
             <span className="text-orange-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">Home-Style Meal</span>
           </h2>
-          <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-primary-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Authentic Indian thali delivered fresh to your hostel
           </p>
         </div>
@@ -38,14 +38,14 @@ export const Home: React.FC = () => {
           </div>
           <div className="p-6">
             <div className="flex items-center justify-between mb-4">
-              <span className="text-3xl font-bold text-gray-900">₹120</span>
+              <span className="text-3xl font-bold text-primary-900">₹120</span>
               <div className="flex items-center space-x-1.5">
                 <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                <span className="text-sm font-semibold text-gray-700">4.8</span>
-                <span className="text-sm text-gray-500">(284)</span>
+                <span className="text-sm font-semibold text-primary-700">4.8</span>
+                <span className="text-sm text-primary-500">(284)</span>
               </div>
             </div>
-            <div className="space-y-2 text-sm text-gray-600">
+            <div className="space-y-2 text-sm text-primary-600">
               <div className="flex items-center space-x-2">
                 <Clock className="w-4 h-4" />
                 <span>30-40 min delivery</span>
@@ -60,23 +60,23 @@ export const Home: React.FC = () => {
 
         {/* Quick Actions */}
         <div className="space-y-6 max-w-2xl mx-auto">
-          <h3 className="text-xl font-bold text-gray-900 text-center">Available Timings</h3>
+          <h3 className="text-xl font-bold text-primary-900 text-center">Available Timings</h3>
 
           <div className="grid grid-cols-2 gap-4">
             <Card hoverable className="p-8 text-center">
               <div className="w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">🌅</span>
               </div>
-              <h4 className="font-bold text-gray-900 mb-2">Lunch</h4>
-              <p className="text-sm text-gray-500">12:00 PM - 3:00 PM</p>
+              <h4 className="font-bold text-primary-900 mb-2">Lunch</h4>
+              <p className="text-sm text-primary-500">12:00 PM - 3:00 PM</p>
             </Card>
 
             <Card hoverable className="p-8 text-center">
               <div className="w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">🌙</span>
               </div>
-              <h4 className="font-bold text-gray-900 mb-2">Dinner</h4>
-              <p className="text-sm text-gray-500">7:00 PM - 10:00 PM</p>
+              <h4 className="font-bold text-primary-900 mb-2">Dinner</h4>
+              <p className="text-sm text-primary-500">7:00 PM - 10:00 PM</p>
             </Card>
           </div>
         </div>
@@ -91,7 +91,7 @@ export const Home: React.FC = () => {
           </Link>
           
           <div className="mt-4 text-center">
-            <p className="text-gray-600 text-sm mb-2">
+            <p className="text-primary-600 text-sm mb-2">
               Already have an account?
             </p>
             <Link to="/login" className="text-orange-600 hover:text-orange-700 font-medium">
@@ -104,26 +104,26 @@ export const Home: React.FC = () => {
         <Card className="p-8 max-w-2xl mx-auto">
           <div className="grid grid-cols-3 gap-6 text-center">
             <div>
-              <div className="text-2xl font-bold text-gray-900">500+</div>
-              <div className="text-xs text-gray-600">Happy Students</div>
+              <div className="text-2xl font-bold text-primary-900">500+</div>
+              <div className="text-xs text-primary-600">Happy Students</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-gray-900">4.8</div>
-              <div className="text-xs text-gray-600">Rating</div>
+              <div className="text-2xl font-bold text-primary-900">4.8</div>
+              <div className="text-xs text-primary-600">Rating</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-gray-900">30min</div>
-              <div className="text-xs text-gray-600">Avg Delivery</div>
+              <div className="text-2xl font-bold text-primary-900">30min</div>
+              <div className="text-xs text-primary-600">Avg Delivery</div>
             </div>
           </div>
         </Card>
 
         {/* Testimonial */}
         <Card className="bg-gradient-to-br from-orange-50/50 to-orange-50/30 border-orange-200/50 p-8 max-w-2xl mx-auto">
-          <p className="text-base italic text-gray-700 mb-3 leading-relaxed">
+          <p className="text-base italic text-primary-700 mb-3 leading-relaxed">
             "Best homestyle food in campus. Tastes just like mom's cooking!"
           </p>
-          <p className="text-sm text-gray-600 font-medium">- Priya, Hostel A</p>
+          <p className="text-sm text-primary-600 font-medium">- Priya, Hostel A</p>
         </Card>
       </main>
     </div>

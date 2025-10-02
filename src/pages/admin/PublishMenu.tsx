@@ -72,14 +72,14 @@ export const PublishMenu: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50/20">
       {/* Header */}
-      <header className="glass border-b border-gray-200/50 shadow-sm">
+      <header className="glass border-b border-primary-200/50 shadow-sm">
         <div className="flex items-center justify-between px-4 py-4">
           <Link to="/admin">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="w-5 h-5" />
             </Button>
           </Link>
-          <h1 className="text-lg md:text-xl font-bold text-gray-900">Publish Menu</h1>
+          <h1 className="text-lg md:text-xl font-bold text-primary-900">Publish Menu</h1>
           <div className="w-10" />
         </div>
       </header>
@@ -87,14 +87,14 @@ export const PublishMenu: React.FC = () => {
       <div className="px-4 py-6 max-w-2xl mx-auto space-y-6">
         {/* Meal Type Toggle */}
         <Card className="p-4">
-          <h3 className="font-bold text-gray-900 mb-4">Meal Type</h3>
-          <div className="flex bg-gray-100 rounded-lg p-1">
+          <h3 className="font-bold text-primary-900 mb-4">Meal Type</h3>
+          <div className="flex bg-primary-100 rounded-lg p-1">
             <button
               onClick={() => setMealType('lunch')}
               className={`flex-1 py-2 px-4 text-sm font-medium rounded-md transition-colors ${
                 mealType === 'lunch'
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-white text-primary-900 shadow-sm'
+                  : 'text-primary-600 hover:text-primary-900'
               }`}
             >
               Lunch (12-3 PM)
@@ -103,8 +103,8 @@ export const PublishMenu: React.FC = () => {
               onClick={() => setMealType('dinner')}
               className={`flex-1 py-2 px-4 text-sm font-medium rounded-md transition-colors ${
                 mealType === 'dinner'
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-white text-primary-900 shadow-sm'
+                  : 'text-primary-600 hover:text-primary-900'
               }`}
             >
               Dinner (7-10 PM)
@@ -114,20 +114,20 @@ export const PublishMenu: React.FC = () => {
 
         {/* Base Price */}
         <Card className="p-4">
-          <h3 className="font-bold text-gray-900 mb-4">Base Price</h3>
+          <h3 className="font-bold text-primary-900 mb-4">Base Price</h3>
           <div className="flex items-center space-x-4">
-            <label className="text-sm text-gray-600">Thali Price:</label>
+            <label className="text-sm text-primary-600">Thali Price:</label>
             <div className="flex items-center space-x-2">
               <span className="text-lg font-semibold">₹</span>
               <input
                 type="number"
                 value={basePrice}
                 onChange={(e) => setBasePrice(Number(e.target.value))}
-                className="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-24 px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
               />
             </div>
           </div>
-          <p className="text-sm text-gray-500 mt-2">
+          <p className="text-sm text-primary-500 mt-2">
             Includes 2 sabjis + base + raita + salad
           </p>
         </Card>
@@ -135,7 +135,7 @@ export const PublishMenu: React.FC = () => {
         {/* Sabji List */}
         <Card className="p-4">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-bold text-gray-900">Today's Sabjis</h3>
+            <h3 className="font-bold text-primary-900">Today's Sabjis</h3>
             <Button
               size="sm"
               onClick={() => setShowAddModal(true)}
@@ -147,14 +147,14 @@ export const PublishMenu: React.FC = () => {
 
           <div className="space-y-3">
             {menuItems.map((item) => (
-              <div key={item.id} className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
+              <div key={item.id} className="flex items-center space-x-4 p-3 bg-primary-50 rounded-lg">
                 <img
                   src={item.image}
                   alt={item.name}
                   className="w-12 h-12 object-cover rounded-lg"
                 />
                 <div className="flex-1">
-                  <h4 className="font-medium text-gray-900">{item.name}</h4>
+                  <h4 className="font-medium text-primary-900">{item.name}</h4>
                   {item.isSpecial && (
                     <div className="flex items-center space-x-1 mt-1">
                       <Star className="w-3 h-3 text-yellow-500 fill-current" />
@@ -183,7 +183,7 @@ export const PublishMenu: React.FC = () => {
 
             {menuItems.length === 0 && (
               <div className="text-center py-8">
-                <p className="text-gray-500 mb-4">No sabjis added yet</p>
+                <p className="text-primary-500 mb-4">No sabjis added yet</p>
                 <Button onClick={() => setShowAddModal(true)}>
                   <Plus className="w-4 h-4 mr-2" />
                   Add Your First Sabji
@@ -204,13 +204,13 @@ export const PublishMenu: React.FC = () => {
 
         {/* Menu Preview */}
         <Card className="p-4">
-          <h3 className="font-bold text-gray-900 mb-4">Menu Preview</h3>
+          <h3 className="font-bold text-primary-900 mb-4">Menu Preview</h3>
           <div className="bg-gradient-to-r from-orange-50/50 to-orange-50/30 rounded-lg p-4 border border-orange-200/50">
-            <h4 className="font-semibold text-gray-900 mb-2">
+            <h4 className="font-semibold text-primary-900 mb-2">
               Today's {mealType.charAt(0).toUpperCase() + mealType.slice(1)} Special
             </h4>
             <div className="text-2xl font-bold text-orange-600 mb-2">₹{basePrice}</div>
-            <div className="text-sm text-gray-700 space-y-1">
+            <div className="text-sm text-primary-700 space-y-1">
               <p><strong>Choose 2 from:</strong></p>
               <div className="grid grid-cols-2 gap-1">
                 {menuItems.map((item) => (
@@ -236,7 +236,7 @@ export const PublishMenu: React.FC = () => {
       >
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-primary-700 mb-1">
               Sabji Name
             </label>
             <input
@@ -244,12 +244,12 @@ export const PublishMenu: React.FC = () => {
               value={newItem.name}
               onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
               placeholder="e.g., Aloo Gobi"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-primary-700 mb-1">
               Image URL (Optional)
             </label>
             <div className="flex space-x-2">
@@ -258,13 +258,13 @@ export const PublishMenu: React.FC = () => {
                 value={newItem.image}
                 onChange={(e) => setNewItem({ ...newItem, image: e.target.value })}
                 placeholder="https://example.com/image.jpg"
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="flex-1 px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
               />
               <Button variant="outline" size="sm">
                 <Upload className="w-4 h-4" />
               </Button>
             </div>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-primary-500 mt-1">
               Leave empty for default image
             </p>
           </div>
@@ -275,9 +275,9 @@ export const PublishMenu: React.FC = () => {
               id="special"
               checked={newItem.isSpecial}
               onChange={(e) => setNewItem({ ...newItem, isSpecial: e.target.checked })}
-              className="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 rounded focus:ring-orange-500"
+              className="w-4 h-4 text-orange-600 bg-primary-100 border-primary-300 rounded focus:ring-accent-500"
             />
-            <label htmlFor="special" className="text-sm font-medium text-gray-700">
+            <label htmlFor="special" className="text-sm font-medium text-primary-700">
               Mark as Today's Special
             </label>
           </div>
@@ -301,7 +301,7 @@ export const PublishMenu: React.FC = () => {
       </Modal>
 
       {/* Bottom Actions */}
-      <div className="fixed bottom-0 left-0 right-0 glass border-t border-gray-200/50 p-4 shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 glass border-t border-primary-200/50 p-4 shadow-lg">
         <div className="max-w-2xl mx-auto flex space-x-3">
           <Button
             variant="outline"

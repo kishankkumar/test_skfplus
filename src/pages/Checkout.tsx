@@ -93,16 +93,16 @@ export const Checkout: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-primary-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="bg-white border-b border-primary-200">
         <div className="flex items-center justify-between px-4 py-4">
           <Link to="/order-summary">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="w-5 h-5" />
             </Button>
           </Link>
-          <h1 className="text-lg font-semibold text-gray-900">Delivery Address</h1>
+          <h1 className="text-lg font-semibold text-primary-900">Delivery Address</h1>
           <div className="w-10" />
         </div>
       </header>
@@ -121,12 +121,12 @@ export const Checkout: React.FC = () => {
               <Navigation className="w-5 h-5 mr-2" />
               Use My Current Location
             </Button>
-            <p className="text-xs text-gray-500 text-center mt-2">
+            <p className="text-xs text-primary-500 text-center mt-2">
               We'll detect your location automatically
             </p>
           </Card>
 
-          <div className="text-center text-sm text-gray-500">or</div>
+          <div className="text-center text-sm text-primary-500">or</div>
 
           <Card className="p-4">
             <Button
@@ -144,7 +144,7 @@ export const Checkout: React.FC = () => {
         {/* Saved Addresses */}
         {savedAddresses.length > 0 && (
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Saved Addresses</h3>
+            <h3 className="font-semibold text-primary-900 mb-4">Saved Addresses</h3>
             <div className="space-y-3">
               {savedAddresses.map((address) => (
                 <Card
@@ -157,10 +157,10 @@ export const Checkout: React.FC = () => {
                   <div className="flex items-start space-x-3">
                     <MapPin className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
-                      <p className="font-medium text-gray-900 text-sm">
+                      <p className="font-medium text-primary-900 text-sm">
                         {address.type === 'geolocation' ? 'Current Location' : address.hostel}
                       </p>
-                      <p className="text-sm text-gray-600 mt-1">
+                      <p className="text-sm text-primary-600 mt-1">
                         {address.address}
                       </p>
                       {address.type === 'geolocation' && (
@@ -176,8 +176,8 @@ export const Checkout: React.FC = () => {
 
         {/* Delivery Instructions */}
         <Card className="p-4">
-          <h4 className="font-medium text-gray-900 mb-2">Delivery Instructions</h4>
-          <p className="text-sm text-gray-600 mb-3">
+          <h4 className="font-medium text-primary-900 mb-2">Delivery Instructions</h4>
+          <p className="text-sm text-primary-600 mb-3">
             Our delivery partner will call you upon arrival
           </p>
           <div className="bg-blue-50 rounded-lg p-3">
@@ -208,13 +208,13 @@ export const Checkout: React.FC = () => {
       >
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-primary-700 mb-1">
               Hostel Name
             </label>
             <select
               value={manualAddress.hostel}
               onChange={(e) => setManualAddress({ ...manualAddress, hostel: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
             >
               <option value="">Select Hostel</option>
               <option value="Hostel A">Hostel A</option>
@@ -226,7 +226,7 @@ export const Checkout: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-primary-700 mb-1">
               Room Number
             </label>
             <input
@@ -234,12 +234,12 @@ export const Checkout: React.FC = () => {
               value={manualAddress.room}
               onChange={(e) => setManualAddress({ ...manualAddress, room: e.target.value })}
               placeholder="e.g., 101, A-205"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-primary-700 mb-1">
               Additional Details (Optional)
             </label>
             <textarea
@@ -247,7 +247,7 @@ export const Checkout: React.FC = () => {
               onChange={(e) => setManualAddress({ ...manualAddress, address: e.target.value })}
               placeholder="Landmarks, floor info, etc."
               rows={2}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-transparent"
             />
           </div>
 
@@ -270,7 +270,7 @@ export const Checkout: React.FC = () => {
       </Modal>
 
       {/* Proceed Button */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-primary-200 p-4">
         <div className="max-w-md mx-auto">
           <Button
             size="lg"

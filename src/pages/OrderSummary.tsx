@@ -36,16 +36,16 @@ export const OrderSummary: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-primary-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="bg-white border-b border-primary-200">
         <div className="flex items-center justify-between px-4 py-4">
           <Link to="/meal-builder">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="w-5 h-5" />
             </Button>
           </Link>
-          <h1 className="text-lg font-semibold text-gray-900">Order Summary</h1>
+          <h1 className="text-lg font-semibold text-primary-900">Order Summary</h1>
           <div className="w-10" />
         </div>
       </header>
@@ -56,31 +56,31 @@ export const OrderSummary: React.FC = () => {
           <div className="w-24 h-24 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
             <span className="text-3xl">🍽️</span>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">Your Custom Thali</h2>
-          <p className="text-sm text-gray-600">Freshly prepared with love</p>
+          <h2 className="text-xl font-semibold text-primary-900 mb-2">Your Custom Thali</h2>
+          <p className="text-sm text-primary-600">Freshly prepared with love</p>
         </Card>
 
         {/* Order Details */}
         <Card className="p-6">
-          <h3 className="font-semibold text-gray-900 mb-4">Your Selection</h3>
+          <h3 className="font-semibold text-primary-900 mb-4">Your Selection</h3>
           
           <div className="space-y-3">
             {/* Sabjis */}
             <div className="flex justify-between items-start">
               <div>
-                <span className="font-medium text-gray-900">Sabjis</span>
-                <div className="text-sm text-gray-600">
+                <span className="font-medium text-primary-900">Sabjis</span>
+                <div className="text-sm text-primary-600">
                   {currentOrder.selectedSabjis.map(s => s.name).join(', ')}
                 </div>
               </div>
-              <span className="text-sm font-medium text-gray-900">₹{basePrice}</span>
+              <span className="text-sm font-medium text-primary-900">₹{basePrice}</span>
             </div>
 
             {/* Base */}
             <div className="flex justify-between items-center">
-              <span className="font-medium text-gray-900">{getBaseText()}</span>
+              <span className="font-medium text-primary-900">{getBaseText()}</span>
               {extraRotiPrice > 0 && (
-                <span className="text-sm font-medium text-gray-900">+₹{extraRotiPrice}</span>
+                <span className="text-sm font-medium text-primary-900">+₹{extraRotiPrice}</span>
               )}
             </div>
 
@@ -93,23 +93,23 @@ export const OrderSummary: React.FC = () => {
             {/* Upgrades */}
             {(currentOrder.upgrades.specialPaneer || currentOrder.upgrades.extraRaita || currentOrder.upgrades.saladAddons) && (
               <>
-                <div className="border-t border-gray-200 pt-3">
-                  <span className="font-medium text-gray-900 block mb-2">Upgrades</span>
+                <div className="border-t border-primary-200 pt-3">
+                  <span className="font-medium text-primary-900 block mb-2">Upgrades</span>
                   {currentOrder.upgrades.specialPaneer && (
                     <div className="flex justify-between items-center text-sm">
-                      <span className="text-gray-700">Special Paneer</span>
+                      <span className="text-primary-700">Special Paneer</span>
                       <span className="font-medium">+₹30</span>
                     </div>
                   )}
                   {currentOrder.upgrades.extraRaita && (
                     <div className="flex justify-between items-center text-sm">
-                      <span className="text-gray-700">Extra Raita</span>
+                      <span className="text-primary-700">Extra Raita</span>
                       <span className="font-medium">+₹15</span>
                     </div>
                   )}
                   {currentOrder.upgrades.saladAddons && (
                     <div className="flex justify-between items-center text-sm">
-                      <span className="text-gray-700">Salad Add-ons</span>
+                      <span className="text-primary-700">Salad Add-ons</span>
                       <span className="font-medium">+₹20</span>
                     </div>
                   )}
@@ -121,11 +121,11 @@ export const OrderSummary: React.FC = () => {
 
         {/* Quantity Selector */}
         <Card className="p-6">
-          <h3 className="font-semibold text-gray-900 mb-4">Quantity</h3>
+          <h3 className="font-semibold text-primary-900 mb-4">Quantity</h3>
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-lg font-medium text-gray-900">How many thalis?</span>
-              <p className="text-sm text-gray-600">Most students choose 1</p>
+              <span className="text-lg font-medium text-primary-900">How many thalis?</span>
+              <p className="text-sm text-primary-600">Most students choose 1</p>
             </div>
             <div className="flex items-center space-x-3">
               <Button 
@@ -157,15 +157,15 @@ export const OrderSummary: React.FC = () => {
 
         {/* Price Breakdown */}
         <Card className="p-6">
-          <h3 className="font-semibold text-gray-900 mb-4">Price Breakdown</h3>
+          <h3 className="font-semibold text-primary-900 mb-4">Price Breakdown</h3>
           
           <div className="space-y-2">
             <div className="flex justify-between">
-              <span className="text-gray-700">Per thali</span>
+              <span className="text-primary-700">Per thali</span>
               <span className="font-medium">₹{perThaliTotal}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-700">Quantity × {currentOrder.quantity}</span>
+              <span className="text-primary-700">Quantity × {currentOrder.quantity}</span>
               <span className="font-medium">₹{subtotal}</span>
             </div>
             {currentOrder.quantity >= 3 && (
@@ -175,11 +175,11 @@ export const OrderSummary: React.FC = () => {
               </div>
             )}
             <div className="flex justify-between">
-              <span className="text-gray-700">Tax (5%)</span>
+              <span className="text-primary-700">Tax (5%)</span>
               <span className="font-medium">₹{tax}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-700">Delivery fee</span>
+              <span className="text-primary-700">Delivery fee</span>
               <span className="font-medium">
                 {deliveryFee === 0 ? (
                   <span className="text-green-600">Free</span>
@@ -191,8 +191,8 @@ export const OrderSummary: React.FC = () => {
             {deliveryFee === 0 && (
               <p className="text-xs text-green-600">Free delivery on orders ≥ ₹200</p>
             )}
-            <div className="border-t border-gray-200 pt-2 flex justify-between">
-              <span className="font-semibold text-lg text-gray-900">Total</span>
+            <div className="border-t border-primary-200 pt-2 flex justify-between">
+              <span className="font-semibold text-lg text-primary-900">Total</span>
               <span className="font-bold text-xl text-orange-600">
                 ₹{currentOrder.quantity >= 3 ? total - Math.round(subtotal * 0.05) : total}
               </span>
@@ -201,7 +201,7 @@ export const OrderSummary: React.FC = () => {
         </Card>
 
         {/* Trust Signals */}
-        <div className="flex items-center justify-between text-sm text-gray-600 px-4">
+        <div className="flex items-center justify-between text-sm text-primary-600 px-4">
           <div className="flex items-center space-x-1">
             <Shield className="w-4 h-4" />
             <span>Secure payments by Razorpay</span>
@@ -222,7 +222,7 @@ export const OrderSummary: React.FC = () => {
       </div>
 
       {/* Checkout Button */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-primary-200 p-4">
         <div className="max-w-md mx-auto space-y-3">
           <Button 
             size="lg" 

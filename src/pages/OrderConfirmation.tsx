@@ -51,11 +51,11 @@ export const OrderConfirmation: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-primary-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="bg-white border-b border-primary-200">
         <div className="flex items-center justify-center px-4 py-4">
-          <h1 className="text-lg font-semibold text-gray-900">Order Confirmed</h1>
+          <h1 className="text-lg font-semibold text-primary-900">Order Confirmed</h1>
         </div>
       </header>
 
@@ -66,8 +66,8 @@ export const OrderConfirmation: React.FC = () => {
             <CheckCircle className="w-10 h-10 text-green-600" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Order Confirmed!</h2>
-            <p className="text-gray-600">Your delicious thali is being prepared</p>
+            <h2 className="text-2xl font-bold text-primary-900 mb-2">Order Confirmed!</h2>
+            <p className="text-primary-600">Your delicious thali is being prepared</p>
           </div>
         </div>
 
@@ -75,13 +75,13 @@ export const OrderConfirmation: React.FC = () => {
         <Card className="p-6 text-center">
           <div className="space-y-4">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">Order #{latestOrder.id}</h3>
-              <p className="text-sm text-gray-600">Placed at {formatTime(latestOrder.createdAt)}</p>
+              <h3 className="text-lg font-semibold text-primary-900">Order #{latestOrder.id}</h3>
+              <p className="text-sm text-primary-600">Placed at {formatTime(latestOrder.createdAt)}</p>
             </div>
             
             <div className="bg-orange-50 rounded-xl p-4">
               <div className="text-3xl font-bold text-orange-600 mb-1">₹{latestOrder.total}</div>
-              <div className="text-sm text-gray-600">{latestOrder.items.quantity} Thali(s)</div>
+              <div className="text-sm text-primary-600">{latestOrder.items.quantity} Thali(s)</div>
             </div>
           </div>
         </Card>
@@ -89,12 +89,12 @@ export const OrderConfirmation: React.FC = () => {
         {/* OTP Card */}
         <Card className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
           <div className="text-center space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900">Your OTP</h3>
+            <h3 className="text-lg font-semibold text-primary-900">Your OTP</h3>
             <div className="bg-white rounded-xl p-4 shadow-sm">
-              <div className="text-4xl font-mono font-bold text-gray-900 tracking-widest mb-3">
+              <div className="text-4xl font-mono font-bold text-primary-900 tracking-widest mb-3">
                 {latestOrder.otp}
               </div>
-              <p className="text-sm text-gray-600">Show this to delivery partner</p>
+              <p className="text-sm text-primary-600">Show this to delivery partner</p>
             </div>
             
             <div className="flex space-x-2">
@@ -125,11 +125,11 @@ export const OrderConfirmation: React.FC = () => {
           <div className="flex items-start space-x-3">
             <Clock className="w-6 h-6 text-orange-500 mt-1" />
             <div className="flex-1">
-              <h4 className="font-medium text-gray-900 mb-1">Estimated Delivery</h4>
+              <h4 className="font-medium text-primary-900 mb-1">Estimated Delivery</h4>
               <p className="text-lg font-semibold text-orange-600">
                 {formatTime(latestOrder.estimatedDelivery)}
               </p>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className="text-sm text-primary-600 mt-1">
                 We'll call you when we're near your location
               </p>
             </div>
@@ -138,17 +138,17 @@ export const OrderConfirmation: React.FC = () => {
 
         {/* Order Items Summary */}
         <Card className="p-6">
-          <h4 className="font-medium text-gray-900 mb-3">Order Summary</h4>
+          <h4 className="font-medium text-primary-900 mb-3">Order Summary</h4>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-600">Sabjis</span>
-              <span className="text-gray-900">
+              <span className="text-primary-600">Sabjis</span>
+              <span className="text-primary-900">
                 {latestOrder.items.selectedSabjis.map(s => s.name).join(', ')}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Base</span>
-              <span className="text-gray-900">
+              <span className="text-primary-600">Base</span>
+              <span className="text-primary-900">
                 {latestOrder.items.baseOption === 'roti-only' && 'Roti Only'}
                 {latestOrder.items.baseOption === 'both' && 'Roti + Rice'}
                 {latestOrder.items.baseOption === 'rice-only' && 'Rice Only'}
@@ -156,15 +156,15 @@ export const OrderConfirmation: React.FC = () => {
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Included</span>
-              <span className="text-gray-900">Raita • Salad</span>
+              <span className="text-primary-600">Included</span>
+              <span className="text-primary-900">Raita • Salad</span>
             </div>
             {(latestOrder.items.upgrades.specialPaneer || 
               latestOrder.items.upgrades.extraRaita || 
               latestOrder.items.upgrades.saladAddons) && (
               <div className="flex justify-between">
-                <span className="text-gray-600">Upgrades</span>
-                <span className="text-gray-900">
+                <span className="text-primary-600">Upgrades</span>
+                <span className="text-primary-900">
                   {[
                     latestOrder.items.upgrades.specialPaneer && 'Special Paneer',
                     latestOrder.items.upgrades.extraRaita && 'Extra Raita',
@@ -203,15 +203,15 @@ export const OrderConfirmation: React.FC = () => {
           <div className="flex items-start space-x-2">
             <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 animate-pulse"></div>
             <div>
-              <p className="font-medium text-gray-900">Order being prepared</p>
-              <p className="text-sm text-gray-600">We'll update you once it's ready for delivery</p>
+              <p className="font-medium text-primary-900">Order being prepared</p>
+              <p className="text-sm text-primary-600">We'll update you once it's ready for delivery</p>
             </div>
           </div>
         </Card>
       </div>
 
       {/* Bottom Actions */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-primary-200 p-4">
         <div className="max-w-md mx-auto space-y-3">
           <Link to="/orders">
             <Button size="lg" fullWidth className="text-lg py-4">

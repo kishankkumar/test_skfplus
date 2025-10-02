@@ -40,7 +40,7 @@ export const Orders: React.FC = () => {
       case 'pending': return 'text-orange-600 bg-orange-100';
       case 'on-the-way': return 'text-blue-600 bg-blue-100';
       case 'delivered': return 'text-green-600 bg-green-100';
-      default: return 'text-gray-600 bg-gray-100';
+      default: return 'text-primary-600 bg-primary-100';
     }
   };
 
@@ -57,31 +57,31 @@ export const Orders: React.FC = () => {
     <Card key={order.id} className="p-4">
       <div className="flex justify-between items-start mb-3">
         <div>
-          <h3 className="font-semibold text-gray-900">Order #{order.id}</h3>
-          <p className="text-sm text-gray-600">{formatDate(order.createdAt)} at {formatTime(order.createdAt)}</p>
+          <h3 className="font-semibold text-primary-900">Order #{order.id}</h3>
+          <p className="text-sm text-primary-600">{formatDate(order.createdAt)} at {formatTime(order.createdAt)}</p>
         </div>
         <div className="text-right">
           <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(order.status)}`}>
             {getStatusText(order.status)}
           </span>
-          <p className="text-lg font-bold text-gray-900 mt-1">₹{order.total}</p>
+          <p className="text-lg font-bold text-primary-900 mt-1">₹{order.total}</p>
         </div>
       </div>
 
       <div className="space-y-2 mb-4">
         <div className="flex items-center justify-between text-sm">
-          <span className="text-gray-600">Items</span>
-          <span className="text-gray-900">{order.items.quantity} Thali(s)</span>
+          <span className="text-primary-600">Items</span>
+          <span className="text-primary-900">{order.items.quantity} Thali(s)</span>
         </div>
         <div className="flex items-start justify-between text-sm">
-          <span className="text-gray-600">Sabjis</span>
-          <span className="text-gray-900 text-right">
+          <span className="text-primary-600">Sabjis</span>
+          <span className="text-primary-900 text-right">
             {order.items.selectedSabjis.map((s: any) => s.name).join(', ')}
           </span>
         </div>
         {order.status !== 'delivered' && (
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-600">Delivery ETA</span>
+            <span className="text-primary-600">Delivery ETA</span>
             <span className="text-orange-600 font-medium">{formatTime(order.estimatedDelivery)}</span>
           </div>
         )}
@@ -125,29 +125,29 @@ export const Orders: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-primary-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="bg-white border-b border-primary-200">
         <div className="flex items-center justify-between px-4 py-4">
           <Link to="/">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="w-5 h-5" />
             </Button>
           </Link>
-          <h1 className="text-lg font-semibold text-gray-900">My Orders</h1>
+          <h1 className="text-lg font-semibold text-primary-900">My Orders</h1>
           <div className="w-10" />
         </div>
       </header>
 
       {/* Tabs */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white border-b border-primary-200">
         <div className="flex max-w-md mx-auto">
           <button
             onClick={() => setActiveTab('on-the-way')}
             className={`flex-1 py-3 px-4 text-sm font-medium border-b-2 transition-colors ${
               activeTab === 'on-the-way'
                 ? 'border-orange-500 text-orange-600'
-                : 'border-transparent text-gray-500 hover:text-gray-700'
+                : 'border-transparent text-primary-500 hover:text-primary-700'
             }`}
           >
             <div className="flex items-center justify-center space-x-1">
@@ -160,7 +160,7 @@ export const Orders: React.FC = () => {
             className={`flex-1 py-3 px-4 text-sm font-medium border-b-2 transition-colors ${
               activeTab === 'delivered'
                 ? 'border-orange-500 text-orange-600'
-                : 'border-transparent text-gray-500 hover:text-gray-700'
+                : 'border-transparent text-primary-500 hover:text-primary-700'
             }`}
           >
             <div className="flex items-center justify-center space-x-1">
@@ -177,11 +177,11 @@ export const Orders: React.FC = () => {
           <>
             {onTheWayOrders.length === 0 ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Clock className="w-8 h-8 text-gray-400" />
                 </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No active orders</h3>
-                <p className="text-gray-600 mb-6">Your current orders will appear here</p>
+                <h3 className="text-lg font-medium text-primary-900 mb-2">No active orders</h3>
+                <p className="text-primary-600 mb-6">Your current orders will appear here</p>
                 <Link to="/">
                   <Button>Order Now</Button>
                 </Link>
@@ -196,11 +196,11 @@ export const Orders: React.FC = () => {
           <>
             {deliveredOrders.length === 0 ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-8 h-8 text-gray-400" />
                 </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No delivered orders</h3>
-                <p className="text-gray-600 mb-6">Your past orders will appear here</p>
+                <h3 className="text-lg font-medium text-primary-900 mb-2">No delivered orders</h3>
+                <p className="text-primary-600 mb-6">Your past orders will appear here</p>
                 <Link to="/">
                   <Button>Place Your First Order</Button>
                 </Link>
