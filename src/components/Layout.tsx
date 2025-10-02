@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, User, LogOut, ShoppingBag } from 'lucide-react';
+import { Menu, X, User, LogOut, ShoppingBag, Moon, Sun } from 'lucide-react';
 import { Button } from './Button';
+import { NotificationCenter, Notification } from './NotificationCenter';
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -11,8 +13,48 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isLoggedIn, user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [notifications, setNotifications] = useState<Notification[]>([
+    {
+      id: '1',
+      type: 'order',
+      title: 'Order Confirmed',
+      message: 'Your order #1234 has been confirmed and is being prepared.',
+      time: new Date(Date.now() - 1000 * 60 * 5),
+      isRead: false
+    },
+    {
+      id: '2',
+      type: 'promotion',
+      title: 'Special Offer',
+      message: 'Get 20% off on your next order. Use code SAVE20',
+      time: new Date(Date.now() - 1000 * 60 * 60),
+      isRead: false
+    },
+    {
+      id: '3',
+      type: 'delivery',
+      title: 'Order Delivered',
+      message: 'Your order has been delivered successfully.',
+      time: new Date(Date.now() - 1000 * 60 * 60 * 2),
+      isRead: true
+    }
+  ]);
+
+  const handleMarkAsRead = (id: string) => {
+    setNotifications(notifications.map(n => n.id === id ? { ...n, isRead: true } : n));
+  };
+
+  const handleMarkAllAsRead = () => {
+    setNotifications(notifications.map(n => ({ ...n, isRead: true })));
+  };
+
+  const handleDeleteNotification = (id: string) => {
+    setNotifications(notifications.filter(n => n.id !== id));
+  };
 
   const handleLogout = () => {
     logout();
@@ -62,6 +104,25 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             </nav>
 
             <div className="hidden md:flex items-center space-x-3">
+              {isLoggedIn && (
+                <NotificationCenter
+                  notifications={notifications}
+                  onMarkAsRead={handleMarkAsRead}
+                  onMarkAllAsRead={handleMarkAllAsRead}
+                  onDelete={handleDeleteNotification}
+                />
+              )}
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg hover:bg-primary-100 transition-colors"
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? (
+                  <Moon className="w-5 h-5 text-primary-700" />
+                ) : (
+                  <Sun className="w-5 h-5 text-primary-700" />
+                )}
+              </button>
               {isLoggedIn ? (
                 <div className="flex items-center space-x-3">
                   <div className="flex items-center space-x-2 px-3 py-1.5 bg-primary-100 rounded-lg">

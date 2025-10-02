@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { Clock, Star, Users, ArrowRight } from 'lucide-react';
+import { Clock, Star, Users, ArrowRight, Zap, Heart, Shield, TrendingUp } from 'lucide-react';
 import { Button } from '../components/Button';
 import { Card } from '../components/Card';
+import { Badge } from '../components/Badge';
 import { useAuth } from '../contexts/AuthContext';
 
 export const Home: React.FC = () => {
@@ -16,14 +17,18 @@ export const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-orange-50/30">
       {/* Hero Section */}
-      <main className="px-4 py-16 max-w-4xl mx-auto space-y-16">
+      <main className="px-4 py-16 max-w-6xl mx-auto space-y-16">
         <div className="text-center space-y-6 animate-fade-in">
-          <h2 className="text-4xl md:text-6xl font-bold text-primary-900 leading-tight tracking-tight">
-            Today's Fresh<br />
-            <span className="text-orange-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">Home-Style Meal</span>
+          <Badge variant="info" size="lg" className="mb-4 inline-flex">
+            <Zap className="w-4 h-4 mr-2" />
+            Now delivering to all hostels
+          </Badge>
+          <h2 className="text-5xl md:text-7xl font-bold text-primary-900 leading-tight tracking-tight">
+            Fresh, Homestyle<br />
+            <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 bg-clip-text text-transparent">Indian Thali</span>
           </h2>
           <p className="text-primary-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Authentic Indian thali delivered fresh to your hostel
+            Authentic meals made with love, delivered hot to your doorstep in 30 minutes
           </p>
         </div>
 
@@ -100,20 +105,54 @@ export const Home: React.FC = () => {
           </div>
         </div>
 
+        {/* Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <Card className="p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-green-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Shield className="w-7 h-7 text-green-600" />
+            </div>
+            <h3 className="font-bold text-primary-900 mb-2">100% Hygienic</h3>
+            <p className="text-sm text-primary-600">Prepared in certified kitchens with strict quality standards</p>
+          </Card>
+
+          <Card className="p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Zap className="w-7 h-7 text-orange-600" />
+            </div>
+            <h3 className="font-bold text-primary-900 mb-2">30 Min Delivery</h3>
+            <p className="text-sm text-primary-600">Hot and fresh meals delivered right on time, every time</p>
+          </Card>
+
+          <Card className="p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="w-14 h-14 bg-gradient-to-br from-purple-100 to-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Heart className="w-7 h-7 text-purple-600" />
+            </div>
+            <h3 className="font-bold text-primary-900 mb-2">Made with Love</h3>
+            <p className="text-sm text-primary-600">Authentic home-style cooking that tastes like mom's food</p>
+          </Card>
+        </div>
+
         {/* Trust Indicators */}
-        <Card className="p-8 max-w-2xl mx-auto">
-          <div className="grid grid-cols-3 gap-6 text-center">
+        <Card className="p-8 max-w-4xl mx-auto bg-gradient-to-br from-orange-50 to-white border-2 border-orange-100">
+          <div className="grid grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-2xl font-bold text-primary-900">500+</div>
-              <div className="text-xs text-primary-600">Happy Students</div>
+              <div className="text-3xl font-bold text-orange-600 mb-1">500+</div>
+              <div className="text-sm text-primary-600">Happy Students</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary-900">4.8</div>
-              <div className="text-xs text-primary-600">Rating</div>
+              <div className="flex items-center justify-center gap-1 mb-1">
+                <Star className="w-6 h-6 text-yellow-400 fill-current" />
+                <span className="text-3xl font-bold text-primary-900">4.8</span>
+              </div>
+              <div className="text-sm text-primary-600">Average Rating</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary-900">30min</div>
-              <div className="text-xs text-primary-600">Avg Delivery</div>
+              <div className="text-3xl font-bold text-blue-600 mb-1">2k+</div>
+              <div className="text-sm text-primary-600">Orders Delivered</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-green-600 mb-1">30min</div>
+              <div className="text-sm text-primary-600">Avg Delivery</div>
             </div>
           </div>
         </Card>

@@ -17,15 +17,18 @@ import { Orders } from './pages/Orders';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { PublishMenu } from './pages/admin/PublishMenu';
 import { AdminOrders } from './pages/admin/AdminOrders';
+import { AnalyticsDashboard } from './pages/admin/AnalyticsDashboard';
 import { AuthProvider } from './contexts/AuthContext';
 import { OrderProvider } from './contexts/OrderContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import { Toast } from './components/Toast';
 
 function App() {
   return (
-    <AuthProvider>
-      <OrderProvider>
-        <Router>
+    <ThemeProvider>
+      <AuthProvider>
+        <OrderProvider>
+          <Router>
           <Layout>
             <Routes>
               {/* Public Routes */}
@@ -47,14 +50,16 @@ function App() {
               
               {/* Admin Routes */}
               <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/analytics" element={<AnalyticsDashboard />} />
               <Route path="/admin/publish-menu" element={<PublishMenu />} />
               <Route path="/admin/orders" element={<AdminOrders />} />
             </Routes>
             <Toast />
           </Layout>
-        </Router>
-      </OrderProvider>
-    </AuthProvider>
+          </Router>
+        </OrderProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

@@ -1,17 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Clock, Star, Users, ArrowRight, ShoppingBag, Heart, TrendingUp } from 'lucide-react';
+import { Clock, Star, Users, ArrowRight, ShoppingBag, Heart, TrendingUp, Award, Zap, Target, Calendar, Wallet, TrendingDown, Check } from 'lucide-react';
 import { Button } from '../components/Button';
 import { Card } from '../components/Card';
+import { StatCard } from '../components/StatCard';
+import { Badge } from '../components/Badge';
+import { Chart, PieChart } from '../components/Chart';
+import { Tabs, Tab } from '../components/Tabs';
 import { useAuth } from '../contexts/AuthContext';
 import { useOrder } from '../contexts/OrderContext';
 
 export const Dashboard: React.FC = () => {
   const { user } = useAuth();
   const { orders } = useOrder();
+  const [selectedPeriod, setSelectedPeriod] = useState<'week' | 'month' | 'year'>('month');
 
-  const recentOrders = orders.slice(0, 2);
+  const recentOrders = orders.slice(0, 3);
   const activeOrders = orders.filter(order => ['pending', 'on-the-way'].includes(order.status));
+  const completedOrders = orders.filter(order => order.status === 'delivered');
+
+  const totalSpent = orders.reduce((sum, order) => sum + order.total, 0);
+  const avgOrderValue = orders.length > 0 ? Math.round(totalSpent / orders.length) : 0;
+  const loyaltyPoints = Math.floor(totalSpent / 10);
+  const savingsFromOffers = Math.round(totalSpent * 0.12);
+
+  const ordersByDay = [
+    { label: 'Mon', value: Math.floor(Math.random() * 10) },
+    { label: 'Tue', value: Math.floor(Math.random() * 10) },
+    { label: 'Wed', value: Math.floor(Math.random() * 10) },
+    { label: 'Thu', value: Math.floor(Math.random() * 10) },
+    { label: 'Fri', value: Math.floor(Math.random() * 10) },
+    { label: 'Sat', value: Math.floor(Math.random() * 10) },
+    { label: 'Sun', value: Math.floor(Math.random() * 10) }
+  ];
+
+  const favoriteDishes = [
+    { label: 'Dal Tadka', value: 12 },
+    { label: 'Paneer Butter', value: 8 },
+    { label: 'Rajma', value: 6 },
+    { label: 'Aloo Gobi', value: 5 }
+  ];
+
+  const achievements = [
+    { id: 1, title: 'First Order', description: 'Completed your first order', icon: '🎉', unlocked: true },
+    { id: 2, title: 'Regular Customer', description: '10 orders completed', icon: '⭐', unlocked: orders.length >= 10 },
+    { id: 3, title: 'Food Explorer', description: 'Tried all dishes', icon: '🍽️', unlocked: false },
+    { id: 4, title: 'Weekly Streak', description: '7 days in a row', icon: '🔥', unlocked: false }
+  ];
 
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -24,18 +59,85 @@ export const Dashboard: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-orange-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
-        <div className="mb-10">
+        <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-primary-900 mb-2 tracking-tight">
-            {getGreeting()}, {user?.name}! 👋
+            {getGreeting()}, {user?.name}!
           </h1>
           <p className="text-primary-600 text-base md:text-lg">
             Ready for some delicious homestyle food?
           </p>
         </div>
 
+        {/* Stats Overview */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <StatCard
+            title="Total Orders"
+            value={orders.length}
+            icon={ShoppingBag}
+            colorScheme="blue"
+            trend={{ value: '+12%', isPositive: true }}
+          />
+          <StatCard
+            title="Total Spent"
+            value={`₹${totalSpent}`}
+            icon={Wallet}
+            colorScheme="green"
+          />
+          <StatCard
+            title="Loyalty Points"
+            value={loyaltyPoints}
+            icon={Award}
+            colorScheme="purple"
+          />
+          <StatCard
+            title="You Saved"
+            value={`₹${savingsFromOffers}`}
+            icon={TrendingDown}
+            colorScheme="orange"
+          />
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
+            {/* Analytics Tabs */}
+            <Tabs
+              tabs={[
+                {
+                  id: 'overview',
+                  label: 'Overview',
+                  icon: <TrendingUp className="w-4 h-4" />,
+                  content: (
+                    <div className="space-y-6">
+                      <Chart data={ordersByDay} title="Order Activity This Week" />
+                      <PieChart data={favoriteDishes} title="Your Favorite Dishes" />
+                    </div>
+                  )
+                },
+                {
+                  id: 'achievements',
+                  label: 'Achievements',
+                  icon: <Award className="w-4 h-4" />,
+                  content: (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {achievements.map(achievement => (
+                        <Card key={achievement.id} className={`p-6 ${achievement.unlocked ? 'bg-gradient-to-br from-orange-50 to-white' : 'opacity-50'}`}>
+                          <div className="text-4xl mb-3">{achievement.icon}</div>
+                          <h4 className="font-bold text-primary-900 mb-1">{achievement.title}</h4>
+                          <p className="text-sm text-primary-600">{achievement.description}</p>
+                          {achievement.unlocked && (
+                            <Badge variant="success" size="sm" className="mt-3">
+                              Unlocked
+                            </Badge>
+                          )}
+                        </Card>
+                      ))}
+                    </div>
+                  )
+                }
+              ]}
+            />
+
             {/* Active Orders */}
             {activeOrders.length > 0 && (
               <div>

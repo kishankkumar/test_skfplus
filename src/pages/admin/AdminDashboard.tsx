@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, ShoppingBag, Settings, PlusCircle, BarChart3, Clock } from 'lucide-react';
+import { Users, ShoppingBag, Settings, PlusCircle, BarChart3, Clock, TrendingUp, DollarSign } from 'lucide-react';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
+import { StatCard } from '../../components/StatCard';
+import { Badge } from '../../components/Badge';
 import { useOrder } from '../../contexts/OrderContext';
 
 export const AdminDashboard: React.FC = () => {
@@ -19,39 +21,61 @@ export const AdminDashboard: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50/20">
       {/* Header */}
-      <header className="glass border-b border-primary-200/50 shadow-sm">
-        <div className="px-4 py-6">
-          <div className="flex items-center justify-between mb-4">
+      <header className="glass border-b border-primary-200/50 shadow-sm bg-white/95 backdrop-blur-lg">
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-primary-900 tracking-tight">SKFood Admin</h1>
-              <p className="text-sm text-primary-600">Manage your food business</p>
+              <h1 className="text-3xl font-bold text-primary-900 tracking-tight">SKFood Admin</h1>
+              <p className="text-sm text-primary-600">Manage your food business with powerful tools</p>
             </div>
-            <Link to="/">
-              <Button variant="outline" size="sm">
-                View App
-              </Button>
-            </Link>
+            <div className="flex items-center gap-3">
+              <Link to="/admin/analytics">
+                <Button variant="outline" size="sm">
+                  <BarChart3 className="w-4 h-4 mr-2" />
+                  Analytics
+                </Button>
+              </Link>
+              <Link to="/">
+                <Button size="sm">
+                  View App
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-3 gap-3">
-            <Card className="p-4 text-center bg-gradient-to-br from-white to-gray-50">
-              <div className="text-2xl md:text-3xl font-bold text-primary-900">{todayOrders.length}</div>
-              <div className="text-xs md:text-sm text-primary-500 mt-1">Today's Orders</div>
-            </Card>
-            <Card className="p-4 text-center bg-gradient-to-br from-orange-50 to-white">
-              <div className="text-2xl md:text-3xl font-bold text-orange-600">₹{todayRevenue}</div>
-              <div className="text-xs md:text-sm text-primary-500 mt-1">Today's Revenue</div>
-            </Card>
-            <Card className="p-4 text-center bg-gradient-to-br from-blue-50 to-white">
-              <div className="text-2xl md:text-3xl font-bold text-blue-600">{pendingOrders.length}</div>
-              <div className="text-xs md:text-sm text-primary-500 mt-1">Pending Orders</div>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <StatCard
+              title="Today's Orders"
+              value={todayOrders.length}
+              icon={ShoppingBag}
+              colorScheme="blue"
+              trend={{ value: '+8%', isPositive: true }}
+            />
+            <StatCard
+              title="Today's Revenue"
+              value={`₹${todayRevenue}`}
+              icon={DollarSign}
+              colorScheme="green"
+              trend={{ value: '+12%', isPositive: true }}
+            />
+            <StatCard
+              title="Pending Orders"
+              value={pendingOrders.length}
+              icon={Clock}
+              colorScheme="orange"
+            />
+            <StatCard
+              title="Total Revenue"
+              value={`₹${orders.reduce((sum, o) => sum + o.total, 0)}`}
+              icon={TrendingUp}
+              colorScheme="purple"
+            />
           </div>
         </div>
       </header>
 
-      <div className="px-4 py-6 max-w-2xl mx-auto space-y-8">
+      <div className="px-4 py-6 max-w-7xl mx-auto space-y-8">
         {/* Quick Actions */}
         <div>
           <h2 className="text-xl font-bold text-primary-900 mb-4">Quick Actions</h2>
