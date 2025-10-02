@@ -74,16 +74,16 @@ export const AdminOrders: React.FC = () => {
   const deliveredCount = orders.filter(o => o.status === 'delivered').length;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50/20">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="glass border-b border-gray-200/50 shadow-sm">
         <div className="flex items-center justify-between px-4 py-4">
           <Link to="/admin">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="w-5 h-5" />
             </Button>
           </Link>
-          <h1 className="text-lg font-semibold text-gray-900">Order Management</h1>
+          <h1 className="text-lg md:text-xl font-bold text-gray-900">Order Management</h1>
           <div className="w-10" />
         </div>
       </header>
@@ -121,8 +121,8 @@ export const AdminOrders: React.FC = () => {
                 onClick={() => setStatusFilter(tab.key as any)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
                   statusFilter === tab.key
-                    ? 'bg-orange-100 text-orange-600'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                    ? 'bg-orange-50 text-orange-600 shadow-xs'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 {tab.label} ({tab.count})
@@ -195,7 +195,7 @@ export const AdminOrders: React.FC = () => {
                   </div>
 
                   {/* OTP Section */}
-                  <div className="bg-gray-50 rounded-lg p-4">
+                  <div className="bg-gray-50/50 border border-gray-200/50 rounded-lg p-4">
                     <h4 className="font-medium text-gray-900 mb-3">Delivery OTP</h4>
                     
                     <div className="space-y-3">

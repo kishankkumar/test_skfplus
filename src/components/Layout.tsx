@@ -39,17 +39,17 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="shadow-sm border-b border-gray-100 sticky top-0 z-40">
+      <header className="glass sticky top-0 z-40 border-b border-gray-200/50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to={isLoggedIn ? '/dashboard' : '/'} className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg">
+            <Link to={isLoggedIn ? '/dashboard' : '/'} className="flex items-center space-x-3 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
                 <span className="text-white font-bold text-lg">SK</span>
               </div>
               <div className="hidden sm:block">
-                <h1 className="text-xl font-bold text-gray-900">SKFood</h1>
-                <p className="text-xs text-gray-500">Premium Food Delivery</p>
+                <h1 className="text-lg font-bold text-gray-900">SKFood</h1>
+                <p className="text-xs text-gray-500">Fresh Home-Style Meals</p>
               </div>
             </Link>
 
@@ -59,9 +59,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActivePath(item.path)
-                      ? 'bg-orange-100 text-orange-700 shadow-sm'
+                      ? 'bg-orange-50 text-orange-600 shadow-xs'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                   }`}
                 >
@@ -73,10 +73,10 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Desktop Auth Actions */}
             <div className="hidden md:flex items-center space-x-3">
               {isLoggedIn ? (
-                <div className="flex items-center space-x-3">
-                  <div className="flex items-center space-x-2 px-3 py-2 bg-gray-50 rounded-lg">
-                    <User className="w-4 h-4 text-gray-600" />
-                    <span className="text-sm font-medium text-gray-900">{user?.name}</span>
+                <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 px-3 py-1.5 bg-gray-100/60 rounded-lg border border-gray-200/50">
+                    <User className="w-4 h-4 text-gray-500" />
+                    <span className="text-sm font-medium text-gray-700">{user?.name}</span>
                   </div>
                   <Button variant="ghost" size="sm" onClick={handleLogout}>
                     <LogOut className="w-4 h-4 mr-1" />
@@ -107,7 +107,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+          <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200/50 shadow-lg animate-slide-down">
             <div className="px-4 py-4 space-y-2">
               {navigationItems.map((item) => (
                 <Link
@@ -170,12 +170,12 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-100 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <footer className="bg-white border-t border-gray-200/50 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-sm">
                   <span className="text-white font-bold">SK</span>
                 </div>
                 <span className="text-lg font-bold text-gray-900">SKFood</span>

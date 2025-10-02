@@ -8,19 +8,19 @@ interface CardProps {
   onClick?: () => void;
 }
 
-export const Card: React.FC<CardProps> = ({ 
-  children, 
-  className = '', 
-  hoverable = false, 
-  selected = false, 
-  onClick 
+export const Card: React.FC<CardProps> = ({
+  children,
+  className = '',
+  hoverable = false,
+  selected = false,
+  onClick
 }) => {
-  const baseClasses = ' rounded-xl shadow-sm transition-all duration-300';
-  const hoverClasses = hoverable ? 'hover:shadow-lg hover:-translate-y-1 cursor-pointer' : '';
-  const selectedClasses = selected ? 'ring-2 ring-orange-500 shadow-lg transform -translate-y-1' : '';
-  
+  const baseClasses = 'bg-white rounded-xl border border-gray-200/60 shadow-xs transition-all duration-200';
+  const hoverClasses = hoverable ? 'hover:shadow-md hover:border-gray-300/60 cursor-pointer active:scale-[0.98]' : '';
+  const selectedClasses = selected ? 'ring-2 ring-orange-500 ring-offset-2 border-orange-500 shadow-md' : '';
+
   return (
-    <div 
+    <div
       className={`${baseClasses} ${hoverClasses} ${selectedClasses} ${className}`}
       onClick={onClick}
     >

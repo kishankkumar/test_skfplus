@@ -21,14 +21,14 @@ export const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-orange-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <div className="mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 tracking-tight">
             {getGreeting()}, {user?.name}! 👋
           </h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-base md:text-lg">
             Ready for some delicious homestyle food?
           </p>
         </div>
@@ -39,10 +39,10 @@ export const Dashboard: React.FC = () => {
             {/* Active Orders */}
             {activeOrders.length > 0 && (
               <div>
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">Active Orders</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Active Orders</h2>
                 <div className="space-y-4">
                   {activeOrders.map((order) => (
-                    <Card key={order.id} className="p-6 border-l-4 border-l-orange-500">
+                    <Card key={order.id} className="p-6 border-l-4 border-l-orange-500 bg-gradient-to-r from-orange-50/30 to-transparent">
                       <div className="flex items-center justify-between mb-4">
                         <div>
                           <h3 className="font-semibold text-gray-900">Order #{order.id}</h3>
@@ -75,16 +75,16 @@ export const Dashboard: React.FC = () => {
 
             {/* Today's Special */}
             <div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Today's Special</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Today's Special</h2>
               <Card className="overflow-hidden">
                 <div className="relative">
-                  <img 
-                    src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop" 
-                    alt="Today's Special Thali" 
+                  <img
+                    src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=700&h=300&fit=crop"
+                    alt="Today's Special Thali"
                     className="w-full h-48 object-cover"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-orange-500 text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg">
                       Today's Special
                     </span>
                   </div>
@@ -128,8 +128,8 @@ export const Dashboard: React.FC = () => {
             {/* Recent Orders */}
             {recentOrders.length > 0 && (
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-semibold text-gray-900">Recent Orders</h2>
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900">Recent Orders</h2>
                   <Link to="/orders">
                     <Button variant="ghost" size="sm">View All</Button>
                   </Link>
@@ -171,7 +171,7 @@ export const Dashboard: React.FC = () => {
           <div className="space-y-6">
             {/* Quick Actions */}
             <Card className="p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Quick Actions</h3>
+              <h3 className="font-bold text-gray-900 mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <Link to="/meal-builder">
                   <Button fullWidth variant="outline" className="justify-start">
@@ -196,7 +196,7 @@ export const Dashboard: React.FC = () => {
 
             {/* Stats */}
             <Card className="p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Your Stats</h3>
+              <h3 className="font-bold text-gray-900 mb-4">Your Stats</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
@@ -223,7 +223,7 @@ export const Dashboard: React.FC = () => {
             </Card>
 
             {/* Testimonial */}
-            <Card className="p-6 bg-gradient-to-br from-orange-50 to-red-50 border-orange-200">
+            <Card className="p-6 bg-gradient-to-br from-orange-50/50 to-orange-50/30 border-orange-200/50">
               <div className="text-center">
                 <div className="flex justify-center mb-3">
                   {[...Array(5)].map((_, i) => (

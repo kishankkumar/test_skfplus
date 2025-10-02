@@ -70,16 +70,16 @@ export const PublishMenu: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50/20">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="glass border-b border-gray-200/50 shadow-sm">
         <div className="flex items-center justify-between px-4 py-4">
           <Link to="/admin">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="w-5 h-5" />
             </Button>
           </Link>
-          <h1 className="text-lg font-semibold text-gray-900">Publish Menu</h1>
+          <h1 className="text-lg md:text-xl font-bold text-gray-900">Publish Menu</h1>
           <div className="w-10" />
         </div>
       </header>
@@ -87,7 +87,7 @@ export const PublishMenu: React.FC = () => {
       <div className="px-4 py-6 max-w-2xl mx-auto space-y-6">
         {/* Meal Type Toggle */}
         <Card className="p-4">
-          <h3 className="font-semibold text-gray-900 mb-4">Meal Type</h3>
+          <h3 className="font-bold text-gray-900 mb-4">Meal Type</h3>
           <div className="flex bg-gray-100 rounded-lg p-1">
             <button
               onClick={() => setMealType('lunch')}
@@ -114,7 +114,7 @@ export const PublishMenu: React.FC = () => {
 
         {/* Base Price */}
         <Card className="p-4">
-          <h3 className="font-semibold text-gray-900 mb-4">Base Price</h3>
+          <h3 className="font-bold text-gray-900 mb-4">Base Price</h3>
           <div className="flex items-center space-x-4">
             <label className="text-sm text-gray-600">Thali Price:</label>
             <div className="flex items-center space-x-2">
@@ -135,7 +135,7 @@ export const PublishMenu: React.FC = () => {
         {/* Sabji List */}
         <Card className="p-4">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold text-gray-900">Today's Sabjis</h3>
+            <h3 className="font-bold text-gray-900">Today's Sabjis</h3>
             <Button
               size="sm"
               onClick={() => setShowAddModal(true)}
@@ -193,7 +193,7 @@ export const PublishMenu: React.FC = () => {
           </div>
 
           {menuItems.length > 0 && (
-            <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+            <div className="mt-4 p-3 bg-blue-50/50 border border-blue-200/50 rounded-lg">
               <p className="text-sm text-blue-800">
                 <strong>{menuItems.length} sabjis</strong> added. 
                 {menuItems.length < 3 && ` Add ${3 - menuItems.length} more to publish.`}
@@ -204,8 +204,8 @@ export const PublishMenu: React.FC = () => {
 
         {/* Menu Preview */}
         <Card className="p-4">
-          <h3 className="font-semibold text-gray-900 mb-4">Menu Preview</h3>
-          <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-4 border border-orange-200">
+          <h3 className="font-bold text-gray-900 mb-4">Menu Preview</h3>
+          <div className="bg-gradient-to-r from-orange-50/50 to-orange-50/30 rounded-lg p-4 border border-orange-200/50">
             <h4 className="font-semibold text-gray-900 mb-2">
               Today's {mealType.charAt(0).toUpperCase() + mealType.slice(1)} Special
             </h4>
@@ -301,7 +301,7 @@ export const PublishMenu: React.FC = () => {
       </Modal>
 
       {/* Bottom Actions */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4">
+      <div className="fixed bottom-0 left-0 right-0 glass border-t border-gray-200/50 p-4 shadow-lg">
         <div className="max-w-2xl mx-auto flex space-x-3">
           <Button
             variant="outline"

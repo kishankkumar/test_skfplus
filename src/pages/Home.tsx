@@ -14,32 +14,35 @@ export const Home: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50/30 via-white to-orange-50/30">
       {/* Hero Section */}
-      <main className="px-4 py-12 max-w-4xl mx-auto space-y-12">
-        <div className="text-center space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+      <main className="px-4 py-16 max-w-4xl mx-auto space-y-16">
+        <div className="text-center space-y-6 animate-fade-in">
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
             Today's Fresh<br />
-            <span className="text-orange-500">Home-Style Meal</span>
+            <span className="text-orange-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">Home-Style Meal</span>
           </h2>
-          <p className="text-gray-600 text-xl max-w-2xl mx-auto">
-            Authentic Indian thali delivered to your hostel
+          <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Authentic Indian thali delivered fresh to your hostel
           </p>
         </div>
 
         {/* Hero Image */}
         <Card className="overflow-hidden max-w-2xl mx-auto">
-          <img 
-            src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" 
-            alt="Fresh Indian Thali" 
-            className="w-full h-64 md:h-80 object-cover"
-          />
-          <div className="p-4">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-2xl font-bold text-gray-900">₹120</span>
-              <div className="flex items-center space-x-2">
-                <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                <span className="text-sm font-medium text-gray-600">4.8 (284 reviews)</span>
+          <div className="relative">
+            <img
+              src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600&h=350&fit=crop"
+              alt="Fresh Indian Thali"
+              className="w-full h-64 md:h-80 object-cover"
+            />
+          </div>
+          <div className="p-6">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-3xl font-bold text-gray-900">₹120</span>
+              <div className="flex items-center space-x-1.5">
+                <Star className="w-5 h-5 text-yellow-400 fill-current" />
+                <span className="text-sm font-semibold text-gray-700">4.8</span>
+                <span className="text-sm text-gray-500">(284)</span>
               </div>
             </div>
             <div className="space-y-2 text-sm text-gray-600">
@@ -57,31 +60,31 @@ export const Home: React.FC = () => {
 
         {/* Quick Actions */}
         <div className="space-y-6 max-w-2xl mx-auto">
-          <h3 className="text-lg font-semibold text-gray-900">What's for today?</h3>
-          
+          <h3 className="text-xl font-bold text-gray-900 text-center">Available Timings</h3>
+
           <div className="grid grid-cols-2 gap-4">
-            <Card hoverable className="p-6 text-center">
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-2xl">🌅</span>
+            <Card hoverable className="p-8 text-center">
+              <div className="w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl">🌅</span>
               </div>
-              <h4 className="font-semibold text-gray-900 mb-1">Lunch</h4>
-              <p className="text-sm text-gray-600">12:00 PM - 3:00 PM</p>
+              <h4 className="font-bold text-gray-900 mb-2">Lunch</h4>
+              <p className="text-sm text-gray-500">12:00 PM - 3:00 PM</p>
             </Card>
-            
-            <Card hoverable className="p-6 text-center">
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                <span className="text-2xl">🌙</span>
+
+            <Card hoverable className="p-8 text-center">
+              <div className="w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl">🌙</span>
               </div>
-              <h4 className="font-semibold text-gray-900 mb-1">Dinner</h4>
-              <p className="text-sm text-gray-600">7:00 PM - 10:00 PM</p>
+              <h4 className="font-bold text-gray-900 mb-2">Dinner</h4>
+              <p className="text-sm text-gray-500">7:00 PM - 10:00 PM</p>
             </Card>
           </div>
         </div>
 
         {/* CTA Button */}
-        <div className="pt-4 max-w-md mx-auto">
+        <div className="pt-8 max-w-md mx-auto space-y-6">
           <Link to="/meal-builder">
-            <Button size="lg" fullWidth className="text-lg py-4">
+            <Button size="lg" fullWidth className="text-base h-12">
               Build Your Thali
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
@@ -98,8 +101,8 @@ export const Home: React.FC = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div className="bg-white rounded-xl p-6 border border-gray-100 max-w-2xl mx-auto">
-          <div className="grid grid-cols-3 gap-4 text-center">
+        <Card className="p-8 max-w-2xl mx-auto">
+          <div className="grid grid-cols-3 gap-6 text-center">
             <div>
               <div className="text-2xl font-bold text-gray-900">500+</div>
               <div className="text-xs text-gray-600">Happy Students</div>
@@ -113,15 +116,15 @@ export const Home: React.FC = () => {
               <div className="text-xs text-gray-600">Avg Delivery</div>
             </div>
           </div>
-        </div>
+        </Card>
 
         {/* Testimonial */}
-        <div className="bg-orange-50 rounded-xl p-6 border border-orange-100 max-w-2xl mx-auto">
-          <p className="text-sm italic text-gray-700 mb-2">
+        <Card className="bg-gradient-to-br from-orange-50/50 to-orange-50/30 border-orange-200/50 p-8 max-w-2xl mx-auto">
+          <p className="text-base italic text-gray-700 mb-3 leading-relaxed">
             "Best homestyle food in campus. Tastes just like mom's cooking!"
           </p>
-          <p className="text-xs text-gray-600 font-medium">- Priya, Hostel A</p>
-        </div>
+          <p className="text-sm text-gray-600 font-medium">- Priya, Hostel A</p>
+        </Card>
       </main>
     </div>
   );

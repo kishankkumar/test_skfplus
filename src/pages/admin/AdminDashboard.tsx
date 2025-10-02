@@ -17,14 +17,14 @@ export const AdminDashboard: React.FC = () => {
   const todayRevenue = todayOrders.reduce((sum, order) => sum + order.total, 0);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50/20">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="glass border-b border-gray-200/50 shadow-sm">
         <div className="px-4 py-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">SKFood Admin</h1>
-              <p className="text-gray-600">Manage your food business</p>
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">SKFood Admin</h1>
+              <p className="text-sm text-gray-600">Manage your food business</p>
             </div>
             <Link to="/">
               <Button variant="outline" size="sm">
@@ -34,32 +34,32 @@ export const AdminDashboard: React.FC = () => {
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-3 gap-4">
-            <Card className="p-4 text-center">
-              <div className="text-2xl font-bold text-gray-900">{todayOrders.length}</div>
-              <div className="text-sm text-gray-600">Today's Orders</div>
+          <div className="grid grid-cols-3 gap-3">
+            <Card className="p-4 text-center bg-gradient-to-br from-white to-gray-50">
+              <div className="text-2xl md:text-3xl font-bold text-gray-900">{todayOrders.length}</div>
+              <div className="text-xs md:text-sm text-gray-500 mt-1">Today's Orders</div>
             </Card>
-            <Card className="p-4 text-center">
-              <div className="text-2xl font-bold text-orange-600">₹{todayRevenue}</div>
-              <div className="text-sm text-gray-600">Today's Revenue</div>
+            <Card className="p-4 text-center bg-gradient-to-br from-orange-50 to-white">
+              <div className="text-2xl md:text-3xl font-bold text-orange-600">₹{todayRevenue}</div>
+              <div className="text-xs md:text-sm text-gray-500 mt-1">Today's Revenue</div>
             </Card>
-            <Card className="p-4 text-center">
-              <div className="text-2xl font-bold text-blue-600">{pendingOrders.length}</div>
-              <div className="text-sm text-gray-600">Pending Orders</div>
+            <Card className="p-4 text-center bg-gradient-to-br from-blue-50 to-white">
+              <div className="text-2xl md:text-3xl font-bold text-blue-600">{pendingOrders.length}</div>
+              <div className="text-xs md:text-sm text-gray-500 mt-1">Pending Orders</div>
             </Card>
           </div>
         </div>
       </header>
 
-      <div className="px-4 py-6 max-w-2xl mx-auto space-y-6">
+      <div className="px-4 py-6 max-w-2xl mx-auto space-y-8">
         {/* Quick Actions */}
         <div>
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
           <div className="grid grid-cols-1 gap-4">
             <Link to="/admin/publish-menu">
-              <Card hoverable className="p-6">
+              <Card hoverable className="p-5">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-orange-100 to-orange-50 rounded-xl flex items-center justify-center">
                     <PlusCircle className="w-6 h-6 text-orange-600" />
                   </div>
                   <div className="flex-1">
@@ -71,9 +71,9 @@ export const AdminDashboard: React.FC = () => {
             </Link>
 
             <Link to="/admin/orders">
-              <Card hoverable className="p-6">
+              <Card hoverable className="p-5">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center">
                     <ShoppingBag className="w-6 h-6 text-blue-600" />
                   </div>
                   <div className="flex-1">
@@ -93,7 +93,7 @@ export const AdminDashboard: React.FC = () => {
 
         {/* Menu Management */}
         <div>
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Menu Management</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Menu Management</h2>
           <div className="grid grid-cols-2 gap-4">
             <Card hoverable className="p-6 text-center">
               <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3">
@@ -116,7 +116,7 @@ export const AdminDashboard: React.FC = () => {
         {/* Recent Orders */}
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">Recent Orders</h2>
+            <h2 className="text-xl font-bold text-gray-900">Recent Orders</h2>
             <Link to="/admin/orders">
               <Button variant="ghost" size="sm">View All</Button>
             </Link>
@@ -162,7 +162,7 @@ export const AdminDashboard: React.FC = () => {
         </div>
 
         {/* Business Insights */}
-        <Card className="p-6 bg-gradient-to-r from-orange-50 to-red-50 border-orange-200">
+        <Card className="p-6 bg-gradient-to-r from-orange-50/50 to-orange-50/30 border-orange-200/50">
           <h3 className="font-semibold text-gray-900 mb-3">Today's Summary</h3>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>

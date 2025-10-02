@@ -116,9 +116,9 @@ export const MealBuilder: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50/20">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="glass border-b border-gray-200/50 shadow-sm">
         <div className="flex items-center justify-between px-4 py-4">
           <Link to="/">
             <Button variant="ghost" size="sm">
@@ -139,8 +139,8 @@ export const MealBuilder: React.FC = () => {
           isActive={currentStep === 0}
           isCompleted={currentStep > 0}
         >
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Choose Your Sabjis</h2>
-          <p className="text-sm text-gray-600 mb-6">Pick up to 2 delicious dishes</p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Choose Your Sabjis</h2>
+          <p className="text-sm text-gray-500 mb-6">Pick up to 2 delicious dishes</p>
           
           <div className="grid grid-cols-2 gap-4 mb-6">
             {SABJIS.map((sabji) => {
@@ -151,12 +151,12 @@ export const MealBuilder: React.FC = () => {
                   hoverable
                   selected={!!isSelected}
                   onClick={() => handleSabjiSelect(sabji)}
-                  className="p-3 cursor-pointer"
+                  className="p-4 cursor-pointer"
                 >
                   <div className="relative mb-3">
-                    <img 
-                      src={sabji.image} 
-                      alt={sabji.name} 
+                    <img
+                      src={sabji.image}
+                      alt={sabji.name}
                       className="w-full h-24 object-cover rounded-lg"
                     />
                     {isSelected && (
@@ -186,15 +186,15 @@ export const MealBuilder: React.FC = () => {
           isActive={currentStep === 1}
           isCompleted={currentStep > 1}
         >
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Choose Your Base</h2>
-          <p className="text-sm text-gray-600 mb-6">Select your preferred combination</p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Choose Your Base</h2>
+          <p className="text-sm text-gray-500 mb-6">Select your preferred combination</p>
           
           <div className="space-y-4 mb-6">
             <Card
               hoverable
               selected={currentOrder.baseOption === 'roti-only'}
               onClick={() => handleBaseOptionChange('roti-only')}
-              className="p-4 cursor-pointer"
+              className="p-5 cursor-pointer"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
@@ -247,7 +247,7 @@ export const MealBuilder: React.FC = () => {
 
           {/* Extra Roti Selector */}
           {currentOrder.baseOption !== 'rice-only' && (
-            <div className="bg-orange-50 rounded-xl p-4">
+            <div className="bg-orange-50/50 border border-orange-200/50 rounded-xl p-4">
               <h4 className="font-medium text-gray-900 mb-3">Extra Roti</h4>
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
@@ -281,11 +281,11 @@ export const MealBuilder: React.FC = () => {
           isActive={currentStep === 2}
           isCompleted={currentStep > 2}
         >
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Extras & Upgrades</h2>
-          <p className="text-sm text-gray-600 mb-6">Customize your thali</p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Extras & Upgrades</h2>
+          <p className="text-sm text-gray-500 mb-6">Customize your thali</p>
 
           {/* Default Included Items */}
-          <div className="bg-green-50 rounded-xl p-4 mb-6">
+          <div className="bg-green-50/50 border border-green-200/50 rounded-xl p-4 mb-6">
             <h4 className="font-medium text-green-800 mb-2">Included Free</h4>
             <div className="space-y-1 text-sm text-green-700">
               <div className="flex items-center space-x-2">
@@ -371,7 +371,7 @@ export const MealBuilder: React.FC = () => {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4">
+      <div className="fixed bottom-0 left-0 right-0 glass border-t border-gray-200/50 p-4 shadow-lg">
         <div className="flex space-x-3 max-w-md mx-auto">
           {currentStep > 0 && (
             <Button variant="outline" onClick={handleBack} className="flex-1">
